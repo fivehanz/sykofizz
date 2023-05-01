@@ -5,5 +5,6 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   outDir: '../../dist/packages/web',
+  site: 'https://sykofizz.hanz.lol',
   integrations: [react(), sitemap(), tailwind()],
 });
