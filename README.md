@@ -2,6 +2,7 @@
 
 [![.github/workflows/publish-web.yml](https://github.com/fivehanz/sykofizz/actions/workflows/publish-web.yml/badge.svg?branch=main)](https://github.com/fivehanz/sykofizz/actions/workflows/publish-web.yml)
 [![release-please](https://github.com/fivehanz/sykofizz/actions/workflows/release-please.yml/badge.svg?branch=main)](https://github.com/fivehanz/sykofizz/actions/workflows/release-please.yml)
+[![CodeQL](https://github.com/fivehanz/sykofizz/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/fivehanz/sykofizz/actions/workflows/github-code-scanning/codeql)
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
