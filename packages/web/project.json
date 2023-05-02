@@ -9,7 +9,7 @@
       "executor": "@nxtensions/astro:build",
       "options": {}
     },
-    "dev": {
+    "serve": {
       "executor": "@nxtensions/astro:dev",
       "options": {}
     },
