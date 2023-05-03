@@ -9,14 +9,7 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
-}
-
-// Define an enum to represent user roles
-enum Role {
-  ADMIN
-  EDITOR
-  AUTHOR
-  USER
+  directUrl = env("DIRECT_URL")
 }
 
 model User {
@@ -33,6 +26,14 @@ model User {
   Page      Page[]
 }
 
+// Define an enum to represent user roles
+enum Role {
+  ADMIN
+  EDITOR
+  AUTHOR
+  USER
+}
+
 model Post {
   id        String   @id @default(uuid())
   title     String
@@ -43,19 +44,7 @@ model Post {
   published Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  // comments  Comment[]
 }
-
-// model Comment {
-//   id        String   @id @default(uuid())
-//   content   String
-//   author    User     @relation(fields: [authorId], references: [id])
-//   authorId  String
-//   post      Post     @relation(fields: [postId], references: [id])
-//   postId    String
-//   createdAt DateTime @default(now())
-//   updatedAt DateTime @updatedAt
-// }
 
 model Page {
   id        String   @id @default(uuid())
