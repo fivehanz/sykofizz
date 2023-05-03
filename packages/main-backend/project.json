@@ -11,6 +11,27 @@
         "command": "prisma init"
       }
     },
+    "prisma-format": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/main-backend",
+        "command": "prisma format"
+      }
+    },
+    "prisma-migrate-dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/main-backend",
+        "command": "prisma migrate dev"
+      }
+    },
+    "prisma-studio": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/main-backend",
+        "command": "prisma studio"
+      }
+    },
     "build": {
       "executor": "@nx/webpack:webpack",
       "outputs": ["{options.outputPath}"],
