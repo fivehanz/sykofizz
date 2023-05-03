@@ -4,6 +4,13 @@
   "sourceRoot": "packages/main-backend/src",
   "projectType": "application",
   "targets": {
+    "prisma-init": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/main-backend",
+        "command": "prisma init"
+      }
+    },
     "build": {
       "executor": "@nx/webpack:webpack",
       "outputs": ["{options.outputPath}"],
