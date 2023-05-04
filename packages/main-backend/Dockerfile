@@ -24,46 +24,19 @@ RUN npm --prefix main-backend --omit=dev -f install
 CMD [ "node", "main-backend" ]
 
 
-# ###################
-# # BUILD FOR LOCAL DEVELOPMENT
-# ###################
+FROM node:lts-slim As build
+# USER node
+RUN curl -fsSL https://get.pnpm.io/install.sh | sh -
+ENV NODE_ENV production
 
-# FROM node:18 As development
-# RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
-
-# WORKDIR /usr/src/app
-
-# COPY --chown=node:node pnpm-lock.yaml ./
-
-# RUN pnpm fetch --prod
+WORKDIR /usr/src/app
 
 # COPY --chown=node:node . .
-# RUN pnpm install
-
-# USER node
-
-# ###################
-# # BUILD FOR PRODUCTION
-# ###################
-
-# FROM node:lts-slim As build
-# RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
-
-# WORKDIR /usr/src/app
-
 # COPY --chown=node:node pnpm-lock.yaml ./
-
 # COPY --chown=node:node --from=development /usr/src/app/node_modules ./node_modules
 
-# COPY --chown=node:node . .
+RUN pnpm install
 
-# RUN pnpm build
-
-# ENV NODE_ENV production
-
-# RUN pnpm install --prod
-
-# USER node
 
 # ###################
 # # PRODUCTION
@@ -75,3 +48,16 @@ CMD [ "node", "main-backend" ]
 # COPY --chown=node:node --from=build /usr/src/app/dist ./dist
 
 # CMD [ "node", "dist/main.js" ]
+
+
+# TODO: build and test in arm64
+# TODO: reduce size of the image
+
+# TODO: use github action to build the image -- what branch strategy should be used?
+# TODO: push it to docker hub
+
+# TODO: setup argocd on microk8s
+# TODO: setup CD repository and make it work with argocd
+# TODO: setup ingress and make it work with cloudflare tunnel
+
+# TODO: test full CD pipeline 
