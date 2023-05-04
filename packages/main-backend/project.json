@@ -32,6 +32,13 @@
         "command": "prisma studio"
       }
     },
+    "prisma-generate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/main-backend",
+        "command": "prisma generate"
+      }
+    },
     "build": {
       "executor": "@nx/webpack:webpack",
       "outputs": ["{options.outputPath}"],
