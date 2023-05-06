@@ -1,26 +1,27 @@
 import { Injectable } from '@nestjs/common';
-import { CreateUserInput } from './dto/create-user.input';
-import { UpdateUserInput } from './dto/update-user.input';
+import { UserCreateInput } from './../@generated/user/user-create.input';
+import { UserUpdateInput } from '../@generated/user/user-update.input';
+import { UserWhereUniqueInput } from '../@generated/user/user-where-unique.input';
 
 @Injectable()
 export class UsersService {
-  create(createUserInput: CreateUserInput) {
-    return 'This action adds a new user';
+  create(userCreateInput: UserCreateInput) {
+    return userCreateInput;
   }
 
   findAll() {
     return `This action returns all users`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  findOne(findOneUserInput: UserWhereUniqueInput) {
+    return findOneUserInput;
   }
 
-  update(id: number, updateUserInput: UpdateUserInput) {
-    return `This action updates a #${id} user`;
+  update(updateUserInput: UserUpdateInput) {
+    return `This action updates a ${updateUserInput.email}`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  remove(findOneUserInput: UserWhereUniqueInput) {
+    return `This action removes a ${findOneUserInput.id} user`;
   }
 }
