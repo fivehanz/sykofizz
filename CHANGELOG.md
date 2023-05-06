@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/fivehanz/sykofizz/compare/v1.0.0...v1.1.0) (2023-05-06)
+
+
+### Features
+
+* added nestjs as main backend ([62eb0f1](https://github.com/fivehanz/sykofizz/commit/62eb0f18462a1dec36869fa59576902ca4e4447e))
+
 ## 1.0.0 (2023-05-02)
 
 
