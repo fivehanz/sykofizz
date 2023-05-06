@@ -5,6 +5,13 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator nestgraphql {
+    // provider = "node node_modules/prisma-nestjs-graphql"
+    // for yarn monorepos
+    provider = "prisma-nestjs-graphql"
+    output = "../src/@generated"
+}
+
 datasource db {
   // provider          = "postgresql"
   provider = "mongodb"
@@ -14,11 +21,10 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid()) @map("_id") @db.ObjectId
+  id        String   @id @default(uuid()) @map("_id") @db.ObjectId 
   email     String   @unique
   password  String
   name      String
-  bio       String
   role      Role     @default(USER)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
