@@ -3,6 +3,7 @@ import { UserCreateInput } from './../@generated/user/user-create.input';
 import { UserUpdateInput } from '../@generated/user/user-update.input';
 import { UserWhereUniqueInput } from '../@generated/user/user-where-unique.input';
 
+//! add debug, info, and error logs
 @Injectable()
 export class UsersService {
   create(userCreateInput: UserCreateInput) {

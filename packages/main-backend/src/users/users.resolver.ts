@@ -5,6 +5,7 @@ import { UserCreateInput } from './../@generated/user/user-create.input';
 import { UserUpdateInput } from '../@generated/user/user-update.input';
 import { UserWhereUniqueInput } from '../@generated/user/user-where-unique.input';
 
+//! add debug, info, and error logs
 @Resolver(() => User)
 export class UsersResolver {
   constructor(private readonly usersService: UsersService) {}
