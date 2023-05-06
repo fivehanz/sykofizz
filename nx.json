@@ -46,5 +46,14 @@
       }
     }
   },
-  "defaultProject": "web"
+  "defaultProject": "web",
+  "generators": {
+    "@nx/web:application": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "vitest",
+      "e2eTestRunner": "cypress"
+    }
+  },
+  "$schema": "./node_modules/nx/schemas/nx-schema.json"
 }
