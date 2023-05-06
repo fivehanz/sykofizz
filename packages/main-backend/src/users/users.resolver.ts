@@ -4,6 +4,8 @@ import { User } from '../@generated/user/user.model';
 import { UserCreateInput } from './../@generated/user/user-create.input';
 import { UserUpdateInput } from '../@generated/user/user-update.input';
 import { UserWhereUniqueInput } from '../@generated/user/user-where-unique.input';
+import { UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from '../auth/jwt.guard';
 
 //! add debug, info, and error logs
 @Resolver(() => User)
@@ -13,6 +15,12 @@ export class UsersResolver {
   @Mutation(() => User)
   createUser(@Args('userCreateInput') userCreateInput: UserCreateInput) {
     return this.usersService.create(userCreateInput);
+  }
+
+  // get the current user with access_token validation
+  @UseGuards(JwtAuthGuard)
+  getMe() {
+    return { user: 'user' };
   }
 
   // !Not Implemented
