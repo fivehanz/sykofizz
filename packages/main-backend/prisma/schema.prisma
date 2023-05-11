@@ -21,7 +21,7 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid()) @map("_id") @db.ObjectId 
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId 
   email     String   @unique
   password  String
   name      String
@@ -41,7 +41,7 @@ enum Role {
 }
 
 model Post {
-  id        String   @id @default(uuid()) @map("_id") @db.ObjectId
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
   title     String
   content   String
   slug      String   @unique
@@ -53,7 +53,7 @@ model Post {
 }
 
 model Page {
-  id        String   @id @default(uuid()) @map("_id") @db.ObjectId
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
   title     String
   content   String
   slug      String   @unique

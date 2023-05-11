@@ -1,9 +1,11 @@
 import {
-  //   ExecutionContext,
+  ExecutionContext,
   Injectable,
+  createParamDecorator,
   //   UnauthorizedException,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { GqlExecutionContext } from '@nestjs/graphql';
 
 @Injectable()
 export class JwtAuthGuard extends AuthGuard('jwt') {
@@ -19,4 +21,34 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
   //     }
   //     return user;
   //   }
+
+  /**
+   * Retrieve the request object from the given execution context.
+   *
+   * @param {ExecutionContext} context - The execution context.
+   * @return {Object} The request object.
+   */
+  getRequest(context: ExecutionContext) {
+    // Create a GraphQL execution context from the provided execution context.
+    const ctx = GqlExecutionContext.create(context);
+
+    // Get the request object from the context.
+    return ctx.getContext().req;
+  }
 }
+
+/**
+ * A decorator that extracts the current user from the request object.
+ *
+ * @param data - Optional data that can be passed to the decorator.
+ * @param context - The execution context of the request.
+ * @returns The current user.
+ */
+export const CurrentUser = createParamDecorator(
+  (data: unknown, context: ExecutionContext) => {
+    // Create a GraphQL execution context from the Nest.js execution context.
+    const graphqlContext = GqlExecutionContext.create(context);
+    // Extract the request object from the GraphQL context and return the user property.
+    return graphqlContext.getContext().req.user;
+  }
+);

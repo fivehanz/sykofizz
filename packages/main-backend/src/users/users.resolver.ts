@@ -5,22 +5,34 @@ import { UserCreateInput } from './../@generated/user/user-create.input';
 import { UserUpdateInput } from '../@generated/user/user-update.input';
 import { UserWhereUniqueInput } from '../@generated/user/user-where-unique.input';
 import { UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from '../auth/jwt.guard';
+import { CurrentUser, JwtAuthGuard } from '../auth/jwt.guard';
 
 //! add debug, info, and error logs
 @Resolver(() => User)
 export class UsersResolver {
   constructor(private readonly usersService: UsersService) {}
 
+  /**
+   * Creates a new user based on the provided user data.
+   * @param data The user data to create the user with.
+   * @returns The newly created user.
+   */
   @Mutation(() => User)
-  createUser(@Args('userCreateInput') userCreateInput: UserCreateInput) {
-    return this.usersService.create(userCreateInput);
+  createUser(@Args('user') data: UserCreateInput) {
+    return this.usersService.create({ data });
   }
 
-  // get the current user with access_token validation
+  /**
+   * Returns a user object by finding it in the database
+   * using the provided user object.
+   *
+   * @param {@CurrentUser()} user - The user object provided by the decorator.
+   * @return {Promise<User>} The found user object.
+   */
+  @Query(() => User)
   @UseGuards(JwtAuthGuard)
-  getMe() {
-    return { user: 'user' };
+  getMe(@CurrentUser() user: User) {
+    return this.usersService.findOne({ where: user });
   }
 
   // !Not Implemented
@@ -32,9 +44,9 @@ export class UsersResolver {
   @Query(() => User, { name: 'user' })
   findOne(
     @Args('findOneUserInput')
-    findOneUserInput: UserWhereUniqueInput
+    user: UserWhereUniqueInput
   ) {
-    return this.usersService.findOne(findOneUserInput);
+    return this.usersService.findOne({ where: user });
   }
 
   @Mutation(() => User)
