@@ -40,22 +40,22 @@ export class UsersService {
   }
 
   /**
-   * Update a unique user with new data.
+   * Updates a single user in the database.
    *
-   * @param {FindUniqueUserArgs} user - The user to update.
-   * @param {UpdateOneUserArgs} data - The new data for the user.
-   * @returns {Promise<User>} The updated user.
+   * @param {UpdateOneUserArgs} data - The data to update the user with.
+   * @return {Promise<User>} The updated user.
    */
-  update(user: FindUniqueUserArgs, data: UpdateOneUserArgs) {
-    return this.prisma.user.update({ ...user, data });
+  update(data: UpdateOneUserArgs) {
+    return this.prisma.user.update(data);
   }
 
   /**
    * Removes a user from the database.
    *
-   * @param {FindUniqueUserArgs} user - The unique identifier of the user that will be removed.
+   * @param {FindUniqueUserArgs} user - The user to remove.
+   * @returns {Promise<User>} - The removed user.
    */
   remove(user: FindUniqueUserArgs) {
-    this.prisma.user.delete(user);
+    return this.prisma.user.delete(user);
   }
 }
