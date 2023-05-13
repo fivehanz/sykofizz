@@ -1,16 +1,20 @@
 import { Injectable } from '@nestjs/common';
-import { UserUpdateInput } from '../@generated/user/user-update.input';
-import { UserWhereUniqueInput } from '../@generated/user/user-where-unique.input';
 import { PrismaService } from '../prisma/prisma.service';
 import { FindUniqueUserArgs } from '../@generated/user/find-unique-user.args';
 import { CreateOneUserArgs } from '../@generated/user/create-one-user.args';
+import { UpdateOneUserArgs } from '../@generated/user/update-one-user.args';
 
 //! add debug, info, and error logs
 @Injectable()
 export class UsersService {
   constructor(private prisma: PrismaService) {}
 
-  // create a user with prisma
+  /**
+   * Creates a new user in the database.
+   *
+   * @param {CreateOneUserArgs} args - The arguments needed to create a new user.
+   * @returns {Promise<User>} - The newly created user.
+   */
   create(args: CreateOneUserArgs) {
     return this.prisma.user.create(args);
   }
@@ -25,15 +29,33 @@ export class UsersService {
     return this.prisma.user.findUnique(user);
   }
 
+  /**
+   * Retrieves all users from the database using Prisma client.
+   *
+   * @return {Promise<User[]>} Returns a promise that resolves with an array
+   * of User objects representing all users in the database.
+   */
   findAll() {
-    return `This action returns all users`;
+    return this.prisma.user.findMany();
   }
 
-  update(updateUserInput: UserUpdateInput) {
-    return `This action updates a ${updateUserInput.email}`;
+  /**
+   * Update a unique user with new data.
+   *
+   * @param {FindUniqueUserArgs} user - The user to update.
+   * @param {UpdateOneUserArgs} data - The new data for the user.
+   * @returns {Promise<User>} The updated user.
+   */
+  update(user: FindUniqueUserArgs, data: UpdateOneUserArgs) {
+    return this.prisma.user.update({ ...user, data });
   }
 
-  remove(findOneUserInput: UserWhereUniqueInput) {
-    return `This action removes a ${findOneUserInput.id} user`;
+  /**
+   * Removes a user from the database.
+   *
+   * @param {FindUniqueUserArgs} user - The unique identifier of the user that will be removed.
+   */
+  remove(user: FindUniqueUserArgs) {
+    this.prisma.user.delete(user);
   }
 }
