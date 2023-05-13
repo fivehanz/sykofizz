@@ -1,3 +1,4 @@
+import { JwtToken } from './auth.types';
 import { Query, Resolver } from '@nestjs/graphql';
 import { AuthService } from './auth.service';
 
@@ -6,13 +7,8 @@ import { AuthService } from './auth.service';
 export class AuthResolver {
   constructor(private authService: AuthService) {}
 
-  // @Query(() => )
-  // login() {
-  //   return this.authService.login();
-  // }
-
-  // @Query()
-  // getMe() {
-  //   return this.authService.me();
-  // }
+  @Query()
+  login(): Promise<JwtToken> {
+    return this.authService.login();
+  }
 }

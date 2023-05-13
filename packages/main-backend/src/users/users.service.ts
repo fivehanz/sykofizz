@@ -10,13 +10,9 @@ import { CreateOneUserArgs } from '../@generated/user/create-one-user.args';
 export class UsersService {
   constructor(private prisma: PrismaService) {}
 
-  // ! TODO: create a user with prisma
+  // create a user with prisma
   create(args: CreateOneUserArgs) {
     return this.prisma.user.create(args);
-  }
-
-  findAll() {
-    return `This action returns all users`;
   }
 
   /**
@@ -27,6 +23,10 @@ export class UsersService {
    */
   findOne(user: FindUniqueUserArgs) {
     return this.prisma.user.findUnique(user);
+  }
+
+  findAll() {
+    return `This action returns all users`;
   }
 
   update(updateUserInput: UserUpdateInput) {

@@ -36,11 +36,6 @@ export class AuthService {
     });
   }
 
-  //! with access_token get the current user
-  me() {
-    return { message: 'My name is me!' };
-  }
-
   /**
    * @description async fn to generate a JWT
    * @param payload {UserWhereUniqueInput}

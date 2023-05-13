@@ -35,27 +35,35 @@ export class UsersResolver {
     return this.usersService.findOne({ where: user });
   }
 
-  // !Not Implemented
-  @Query(() => [User], { name: 'users' })
-  findAll() {
-    return this.usersService.findAll();
-  }
-
+  /**
+   * Finds a single user based on the given unique identifier.
+   *
+   * @param {UserWhereUniqueInput} user - The unique identifier of the user to find.
+   * @return {Promise<User>} The user that was found.
+   */
   @Query(() => User, { name: 'user' })
   findOne(
-    @Args('findOneUserInput')
+    @Args('user')
     user: UserWhereUniqueInput
   ) {
     return this.usersService.findOne({ where: user });
   }
 
+  // ! TODO
+  @Query(() => [User], { name: 'users' })
+  findAll() {
+    return this.usersService.findAll();
+  }
+
+  // ! TODO
   @Mutation(() => User)
-  updateUser(@Args('updateUserInput') updateUserInput: UserUpdateInput) {
+  updateUser(@Args('user') updateUserInput: UserUpdateInput) {
     return this.usersService.update(updateUserInput);
   }
 
+  // ! TODO
   @Mutation(() => User)
-  removeUser(@Args('findOneUserInput') findOneUserInput: UserWhereUniqueInput) {
+  removeUser(@Args('user') findOneUserInput: UserWhereUniqueInput) {
     return this.usersService.remove(findOneUserInput);
   }
 }
