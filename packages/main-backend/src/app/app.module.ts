@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from '../auth/auth.module';
@@ -8,6 +7,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { UsersModule } from '../users/users.module';
 import { ConfigModule } from '@nestjs/config';
+import { PostsModule } from '../posts/posts.module';
 
 //! add debug, info, and error logs
 @Module({
@@ -19,9 +19,10 @@ import { ConfigModule } from '@nestjs/config';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    UsersModule,
-    AuthModule,
     PrismaModule,
+    AuthModule,
+    UsersModule,
+    PostsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
