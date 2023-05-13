@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/fivehanz/sykofizz/compare/v1.1.0...v1.2.0) (2023-05-13)
+
+
+### Features
+
+* create and login user w/ jwt ([5c45c60](https://github.com/fivehanz/sykofizz/commit/5c45c60ad3244904c42e92001deb16a72b5feee1))
+
 ## [1.1.0](https://github.com/fivehanz/sykofizz/compare/v1.0.0...v1.1.0) (2023-05-06)
 
 
