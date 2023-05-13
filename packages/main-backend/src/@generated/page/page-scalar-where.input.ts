@@ -1,5 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
+import { UuidFilter } from '../prisma/uuid-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 
@@ -15,8 +16,8 @@ export class PageScalarWhereInput {
     @Field(() => [PageScalarWhereInput], {nullable:true})
     NOT?: Array<PageScalarWhereInput>;
 
-    @Field(() => StringFilter, {nullable:true})
-    id?: StringFilter;
+    @Field(() => UuidFilter, {nullable:true})
+    id?: UuidFilter;
 
     @Field(() => StringFilter, {nullable:true})
     title?: StringFilter;
@@ -27,8 +28,8 @@ export class PageScalarWhereInput {
     @Field(() => StringFilter, {nullable:true})
     slug?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    authorId?: StringFilter;
+    @Field(() => UuidFilter, {nullable:true})
+    authorId?: UuidFilter;
 
     @Field(() => DateTimeFilter, {nullable:true})
     createdAt?: DateTimeFilter;

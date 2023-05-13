@@ -9,6 +9,9 @@ import { PageUncheckedUpdateManyWithoutAuthorNestedInput } from '../page/page-un
 export class UserUncheckedUpdateWithoutPostsInput {
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    id?: StringFieldUpdateOperationsInput;
+
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     email?: StringFieldUpdateOperationsInput;
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})

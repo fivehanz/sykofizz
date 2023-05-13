@@ -9,4 +9,7 @@ export class CreateManyPageArgs {
     @Field(() => [PageCreateManyInput], {nullable:false})
     @Type(() => PageCreateManyInput)
     data!: Array<PageCreateManyInput>;
+
+    @Field(() => Boolean, {nullable:true})
+    skipDuplicates?: boolean;
 }

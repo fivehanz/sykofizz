@@ -9,4 +9,7 @@ export class PageCreateManyAuthorInputEnvelope {
     @Field(() => [PageCreateManyAuthorInput], {nullable:false})
     @Type(() => PageCreateManyAuthorInput)
     data!: Array<PageCreateManyAuthorInput>;
+
+    @Field(() => Boolean, {nullable:true})
+    skipDuplicates?: boolean;
 }

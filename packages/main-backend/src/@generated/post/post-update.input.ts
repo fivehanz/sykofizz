@@ -9,6 +9,9 @@ import { UserUpdateOneRequiredWithoutPostsNestedInput } from '../user/user-updat
 export class PostUpdateInput {
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    id?: StringFieldUpdateOperationsInput;
+
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     title?: StringFieldUpdateOperationsInput;
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})

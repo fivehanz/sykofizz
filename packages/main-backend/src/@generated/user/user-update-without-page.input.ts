@@ -9,6 +9,9 @@ import { PostUpdateManyWithoutAuthorNestedInput } from '../post/post-update-many
 export class UserUpdateWithoutPageInput {
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    id?: StringFieldUpdateOperationsInput;
+
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     email?: StringFieldUpdateOperationsInput;
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
