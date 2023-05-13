@@ -6,6 +6,7 @@ import { UserUpdateInput } from '../@generated/user/user-update.input';
 import { UserWhereUniqueInput } from '../@generated/user/user-where-unique.input';
 import { UseGuards } from '@nestjs/common';
 import { CurrentUser, JwtAuthGuard } from '../auth/jwt.guard';
+import { FindUniqueUserArgs } from '../@generated/user/find-unique-user.args';
 
 //! add debug, info, and error logs
 @Resolver(() => User)
@@ -31,8 +32,8 @@ export class UsersResolver {
    */
   @Query(() => User)
   @UseGuards(JwtAuthGuard)
-  getMe(@CurrentUser() user: User) {
-    return this.usersService.findOne({ where: user });
+  getMe(@CurrentUser() user: FindUniqueUserArgs) {
+    return this.usersService.findOne(user);
   }
 
   /**

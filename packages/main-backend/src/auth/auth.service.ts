@@ -1,9 +1,11 @@
+import { JwtStrategy } from './jwt.strategy';
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { JwtToken } from './auth.types';
+import { JwtToken } from './dto/jwt-token';
 import { UserWhereUniqueInput } from '../@generated/user/user-where-unique.input';
+import { LoginUserInput } from './dto/login-user.input';
 
 //! add debug, info, and error logs
 @Injectable()
@@ -11,28 +13,38 @@ export class AuthService {
   constructor(
     private prisma: PrismaService,
     private jwt: JwtService,
-    private config: ConfigService
+    private config: ConfigService,
+    private strategy: JwtStrategy
   ) {}
 
-  login(): Promise<JwtToken> {
-    //! do login logic here with prisma
-
+  /**
+   * Asynchronously validates user credentials and returns a signed JWT token.
+   * @param {LoginUserInput} payload - Object containing user credentials.
+   * @property {string} email - The email address associated with the user account.
+   * @property {string} password - The password associated with the user account.
+   * @return {Promise<JwtToken>} A Promise to the signed JWT token associated with the user account.
+   * @throws {Error} If the provided email or password is invalid.
+   */
+  async validateUser(payload: LoginUserInput): Promise<JwtToken> {
     // Query the user with the provided email address and password
-    // const user = await this.prisma.user.findUnique({
-    //   where: {
-    //     email,
-    //   },
-    // });
+    const user = await this.prisma.user.findUnique({
+      where: { email: payload.email },
+    });
 
-    // If the user doesn't exist, throw an error
-    // if (!user) {
-    //   throw new Error('Invalid email or password');
-    // }
+    // check if user exists
+    if (!user) {
+      throw new Error('Invalid email or password');
+    }
+
+    // check if password matches
+    if (user.password !== payload.password) {
+      throw new Error('Invalid email or password');
+    }
 
     // generate a signed jwt token
     return this.signToken({
-      id: 'some-lksdjflasjdfl-uuid',
-      email: 'email@email',
+      id: user.id,
+      email: user.email,
     });
   }
 
