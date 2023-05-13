@@ -2,7 +2,6 @@ import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { UsersService } from './users.service';
 import { User } from '../@generated/user/user.model';
 import { UserCreateInput } from './../@generated/user/user-create.input';
-import { UserUpdateInput } from '../@generated/user/user-update.input';
 import { UserWhereUniqueInput } from '../@generated/user/user-where-unique.input';
 import { UseGuards } from '@nestjs/common';
 import { CurrentUser, JwtAuthGuard } from '../auth/jwt.guard';
@@ -51,20 +50,20 @@ export class UsersResolver {
   }
 
   // ! TODO
-  @Query(() => [User], { name: 'users' })
-  findAll() {
-    return this.usersService.findAll();
-  }
+  // @Query(() => [User], { name: 'users' })
+  // findAll() {
+  //   return this.usersService.findAll();
+  // }
 
   // ! TODO
-  @Mutation(() => User)
-  updateUser(@Args('user') updateUserInput: UserUpdateInput) {
-    return this.usersService.update(updateUserInput);
-  }
+  // @Mutation(() => User)
+  // updateUser(@Args('user') updateUserInput: UserUpdateInput) {
+  //   return this.usersService.update(updateUserInput);
+  // }
 
   // ! TODO
-  @Mutation(() => User)
-  removeUser(@Args('user') findOneUserInput: UserWhereUniqueInput) {
-    return this.usersService.remove(findOneUserInput);
-  }
+  // @Mutation(() => User)
+  // removeUser(@Args('user') findOneUserInput: UserWhereUniqueInput) {
+  //   return this.usersService.remove(findOneUserInput);
+  // }
 }
