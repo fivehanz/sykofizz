@@ -46,7 +46,6 @@
       }
     }
   },
-  "defaultProject": "web",
   "generators": {
     "@nx/web:application": {
       "style": "css",
