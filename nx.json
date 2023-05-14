@@ -1,5 +1,5 @@
 {
-  "plugins": ["@nxtensions/astro"],
+  "plugins": ["@nx/next"],
   "npmScope": "sykofizz",
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
@@ -52,6 +52,17 @@
       "linter": "eslint",
       "unitTestRunner": "vitest",
       "e2eTestRunner": "cypress"
+    },
+    "@nx/react": {
+      "application": {
+        "babel": true
+      }
+    },
+    "@nx/next": {
+      "application": {
+        "style": "scss",
+        "linter": "eslint"
+      }
     }
   },
   "$schema": "./node_modules/nx/schemas/nx-schema.json"
