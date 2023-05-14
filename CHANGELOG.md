@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.0](https://github.com/fivehanz/sykofizz/compare/v1.2.0...v1.3.0) (2023-05-14)
+
+
+### Features
+
+* add nextjs 13 for web ([a178d5e](https://github.com/fivehanz/sykofizz/commit/a178d5e1ec91fda9f979e1acdd5da3fa1f25c7e8))
+* ported to nextjs 13 ([9f2f73f](https://github.com/fivehanz/sykofizz/commit/9f2f73fcdb0f06c6ecfa1f903949120b66375755))
+* remove web as astro ([9b8e723](https://github.com/fivehanz/sykofizz/commit/9b8e7238ed4ebdcdd2d6473cdb10cb2ba0d678ff))
+
 ## [1.2.0](https://github.com/fivehanz/sykofizz/compare/v1.1.0...v1.2.0) (2023-05-13)
 
 
