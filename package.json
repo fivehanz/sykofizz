@@ -2,9 +2,7 @@
   "name": "sykofizz",
   "version": "1.3.0",
   "license": "MIT",
-  "scripts": {
-    "postinstall": "node ./tools/scripts/patch-nx-cli.js"
-  },
+  "scripts": {},
   "private": true,
   "devDependencies": {
     "@astrojs/react": "^2.1.3",
