@@ -2,6 +2,7 @@
 FROM node:lts AS builder
 RUN npm i -g npm pnpm@8
 
+ENV NX_NON_NATIVE_HASHER=true
 
 WORKDIR /app
 COPY . .
