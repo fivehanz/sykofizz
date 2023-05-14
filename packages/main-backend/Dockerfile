@@ -8,8 +8,9 @@ WORKDIR /app
 COPY . .
 
 RUN pnpm install 
+RUN pnpm dlx nx run main-backend:prisma-generate
 RUN pnpm dlx nx run main-backend:build:production 
-# RUN pnpm prune --prod
+
 
 ###! PRODUCTION RUNNER ###
 FROM node:lts-slim AS production
