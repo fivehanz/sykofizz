@@ -2,7 +2,6 @@
 FROM node:lts AS builder
 RUN npm i -g npm pnpm@8
 
-ENV NODE_ENV production
 
 WORKDIR /app
 COPY . .
@@ -10,6 +9,7 @@ RUN pnpm install && pnpm dlx nx run main-backend:build:production && pnpm prune 
 
 ###! PRODUCTION RUNNER ###
 FROM node:lts-slim AS production
+ENV NODE_ENV production
 
 WORKDIR /app
 
