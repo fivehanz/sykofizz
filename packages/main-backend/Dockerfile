@@ -6,7 +6,10 @@ ENV NX_NON_NATIVE_HASHER=true
 
 WORKDIR /app
 COPY . .
-RUN pnpm install && pnpm dlx nx run main-backend:build:production && pnpm prune --prod
+
+RUN pnpm install 
+RUN pnpm dlx nx run main-backend:build:production 
+RUN pnpm prune --prod
 
 ###! PRODUCTION RUNNER ###
 FROM node:lts-slim AS production
