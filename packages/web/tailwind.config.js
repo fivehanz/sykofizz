@@ -1,9 +1,12 @@
 /** @type {import('tailwindcss').Config} */
+
+const { join } = require('path');
+
 module.exports = {
   mode: 'jit',
-  content: ['./app/**/*.{js,ts,jsx,tsx,html,css}'],
-  theme: {
-    extend: {},
-  },
+  content: [
+    join(__dirname, './app/**/*.{js,ts,jsx,tsx,mdx}'),
+    join(__dirname, './components/**/*.{js,ts,jsx,tsx,mdx}'),
+  ],
   plugins: [require('daisyui')],
 };
