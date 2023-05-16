@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.4.0](https://github.com/fivehanz/sykofizz/compare/v1.3.0...v1.4.0) (2023-05-16)
+
+
+### Features
+
+* added footer ([92c8e03](https://github.com/fivehanz/sykofizz/commit/92c8e0301c6fa96e6f367ffc46b0d1b7d3c3584b))
+
+
+### Bug Fixes
+
+* tailwind & daisyui working ([ace5a46](https://github.com/fivehanz/sykofizz/commit/ace5a46b76f2b0c3524277fb01f0c87e488156c0))
+
 ## [1.3.0](https://github.com/fivehanz/sykofizz/compare/v1.2.0...v1.3.0) (2023-05-14)
 
 
