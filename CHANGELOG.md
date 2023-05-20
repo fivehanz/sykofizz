@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/fivehanz/sykofizz/compare/v1.4.0...v1.5.0) (2023-05-20)
+
+
+### Features
+
+* move web to admin ([c100c4e](https://github.com/fivehanz/sykofizz/commit/c100c4e9b60cd3b88d564d9fcfb5943aeaeeb59c))
+
 ## [1.4.0](https://github.com/fivehanz/sykofizz/compare/v1.3.0...v1.4.0) (2023-05-16)
 
 
