@@ -15,9 +15,11 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="night">
       <body>
-        <Navbar />
-        {children}
-        <Footer />
+        <div className="relative min-h-screen">
+          <Navbar />
+          <main className="pb-10">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

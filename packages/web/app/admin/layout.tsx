@@ -6,11 +6,7 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <>
-      <AdminSidebar links={links}>{children}</AdminSidebar>
-    </>
-  );
+  return <AdminSidebar links={links}>{children}</AdminSidebar>;
 }
 
 // sidebar links
