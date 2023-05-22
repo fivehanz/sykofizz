@@ -1,11 +1,12 @@
-import { NavLinkProps } from '../../components/nav-link/nav-link';
-import AdminSidebar from '../../components/admin-sidebar/admin-sidebar';
-
-export default function AdminLayout({
-  children,
-}: {
+/* eslint-disable-next-line */
+export interface AdminLayoutProps {
   children: React.ReactNode;
-}) {
+}
+
+import AdminSidebar from '../../components/admin-sidebar/admin-sidebar';
+import { NavLinkProps } from '../../components/nav-link/nav-link';
+
+export default function AdminLayout({ children }: AdminLayoutProps) {
   return <AdminSidebar links={links}>{children}</AdminSidebar>;
 }
 
