@@ -1,4 +1,4 @@
-run = "pnpm run start"
+run = "pnpm run dev --host"
 hidden = [".build", ".config"]
 
 [packager]
@@ -24,4 +24,4 @@ pattern = "**/{*.ts,*.js,*.tsx,*.jsx}"
 start = "typescript-language-server --stdio"
 
 [deployment]
-run = ["sh", "-c", "pnpm run start"]
+run = ["sh", "-c", "pnpm run dev", "--host"]
