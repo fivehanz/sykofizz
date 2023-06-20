@@ -2,7 +2,7 @@
   description = "A Nix-flake-based Node.js development environment";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/release-22.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/release-23.05";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -18,17 +18,18 @@
         (self: super: rec {
           nodejs = super.nodejs-18_x;
           pnpm = super.nodePackages.pnpm;
-          yarn = (super.yarn.override { inherit nodejs; });
+          # yarn = (super.yarn.override { inherit nodejs; });
         })
       ];
       pkgs = import nixpkgs { inherit overlays system; };
     in
     {
       devShells.default = pkgs.mkShell {
-        packages = with pkgs; [ node2nix nodejs pnpm yarn ];
+        packages = with pkgs; [ node2nix nodejs pnpm fish zoxide ];
 
         shellHook = ''
           echo "node `${pkgs.nodejs}/bin/node --version`"
+          fish
         '';
       };
     });
