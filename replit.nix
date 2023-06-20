@@ -1,6 +1,6 @@
 { pkgs }: {
     deps = [
-        pkgs.esbuild
+        # pkgs.esbuild
         pkgs.nodejs-18_x
         pkgs.nodePackages.pnpm
 
