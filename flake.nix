@@ -25,7 +25,7 @@
     in
     {
       devShells.default = pkgs.mkShell {
-        packages = with pkgs; [ node2nix nodejs pnpm fish zoxide ];
+        packages = with pkgs; [ node2nix nodejs pnpm fish ];
 
         shellHook = ''
           echo "node `${pkgs.nodejs}/bin/node --version`"
