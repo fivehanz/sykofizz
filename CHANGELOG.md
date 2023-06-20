@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.6.1](https://github.com/fivehanz/sykofizz/compare/v1.6.0...v1.6.1) (2023-06-20)
+
+
+### Bug Fixes
+
+* nix channel for replit ([ac7be69](https://github.com/fivehanz/sykofizz/commit/ac7be696a34928c8ec78f921fbcf855aee4b5410))
+* run cmd ([19ec3df](https://github.com/fivehanz/sykofizz/commit/19ec3dffc5101b5fd48fe073ed61dd27697d7656))
+
 ## [1.6.0](https://github.com/fivehanz/sykofizz/compare/v1.5.0...v1.6.0) (2023-06-20)
 
 
