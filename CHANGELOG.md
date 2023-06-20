@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.6.0](https://github.com/fivehanz/sykofizz/compare/v1.5.0...v1.6.0) (2023-06-20)
+
+
+### Features
+
+* **create-turbo:** apply official-starter transform ([1573723](https://github.com/fivehanz/sykofizz/commit/1573723bd549bf7a54b18a22a89d3ce889c9a019))
+* migrate to sveltekit ([8abbcce](https://github.com/fivehanz/sykofizz/commit/8abbcce61ac102217c9645b33cc3dc796600fd7c))
+* tailwind & cloudflare adapter ([8b94152](https://github.com/fivehanz/sykofizz/commit/8b9415273643e2b5cc33a81a138f96151d45d252))
+
 ## [1.5.0](https://github.com/fivehanz/sykofizz/compare/v1.4.0...v1.5.0) (2023-05-20)
 
 
