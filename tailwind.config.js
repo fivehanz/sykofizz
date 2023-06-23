@@ -5,7 +5,7 @@ export default {
 		extend: {}
 	},
 	daisyui: {
-		themes: ['dark', 'night']
+		themes: ['acid', 'synthwave']
 	},
 	plugins: [require('@tailwindcss/typography'), require('daisyui')]
 };
