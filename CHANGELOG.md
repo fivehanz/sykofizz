@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/fivehanz/sykofizz/compare/v1.6.1...v1.7.0) (2023-06-24)
+
+
+### Features
+
+* added auth page and component ([76c8c95](https://github.com/fivehanz/sykofizz/commit/76c8c95fcfb2a76e32205578292051939816158d))
+
 ## [1.6.1](https://github.com/fivehanz/sykofizz/compare/v1.6.0...v1.6.1) (2023-06-20)
 
 ### Bug Fixes
