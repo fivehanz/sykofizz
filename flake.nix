@@ -1,8 +1,8 @@
 {
-  description = "A Nix-flake-based Node.js development environment";
+  description = "A Nix-flake-based PHP development environment";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/release-23.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/release-22.11";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -17,17 +17,17 @@
       overlays = [
         (self: super: rec {
           nodejs = super.nodejs-18_x;
-          pnpm = super.nodePackages.pnpm;
-          # yarn = (super.yarn.override { inherit nodejs; });
+          yarn = (super.yarn.override { inherit nodejs; });
         })
       ];
-      pkgs = import nixpkgs { inherit overlays system; };
+      pkgs = import nixpkgs { inherit system; };
     in
     {
-      devShells.default = pkgs.mkShell {
-        packages = with pkgs; [ node2nix nodejs pnpm fish ];
+      devShell = pkgs.mkShell {
+        packages = with pkgs; [ phpPackages.composer php fish node2nix nodejs yarn ];
 
         shellHook = ''
+          echo "`${pkgs.php}/bin/php --version`"
           echo "node `${pkgs.nodejs}/bin/node --version`"
           fish
         '';
