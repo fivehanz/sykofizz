@@ -1,12 +1,27 @@
-.DS_Store
-node_modules
-/build
-/.svelte-kit
-/package
+# Application
+web/app/plugins/*
+!web/app/plugins/.gitkeep
+web/app/mu-plugins/*/
+web/app/themes/twentytwentythree/
+web/app/upgrade
+web/app/uploads/*
+!web/app/uploads/.gitkeep
+web/app/cache/*
+
+# WordPress
+web/wp
+web/.htaccess
+
+# Logs
+*.log
+
+# Dotenv
 .env
 .env.*
 !.env.example
-.vercel
-.output
-vite.config.js.timestamp-*
-vite.config.ts.timestamp-*
+
+# Composer
+/vendor
+
+# WP-CLI
+wp-cli.local.yml
