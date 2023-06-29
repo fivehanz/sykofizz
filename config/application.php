@@ -51,6 +51,11 @@ if (file_exists($root_dir . '/.env')) {
 define('WP_ENV', env('WP_ENV') ?: 'production');
 
 /**
+* planetscale mysql config
+*/
+define( 'MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL );
+
+/**
  * Infer WP_ENVIRONMENT_TYPE based on WP_ENV
  */
 if (!env('WP_ENVIRONMENT_TYPE') && in_array(WP_ENV, ['production', 'staging', 'development'])) {
