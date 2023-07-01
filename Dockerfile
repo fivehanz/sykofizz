@@ -3,7 +3,5 @@ COPY . /var/www/html/
 
 # main bedrock
 RUN composer install --no-dev
-# theme installer
-RUN cd web/app/themes/sykofizz && composer install --no-dev
 
 ENTRYPOINT ["/init"]
