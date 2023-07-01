@@ -14,21 +14,22 @@
 
     flake-utils.lib.eachDefaultSystem (system:
     let
-      overlays = [
-        (self: super: rec {
-          nodejs = super.nodejs-18_x;
-          yarn = (super.yarn.override { inherit nodejs; });
-        })
-      ];
+      # overlays = [
+      #   (self: super: rec {
+      #     nodejs = super.nodejs-18_x;
+      #     yarn = (super.yarn.override { inherit nodejs; });
+      #   })
+      # ];
       pkgs = import nixpkgs { inherit system; };
     in
     {
       devShell = pkgs.mkShell {
-        packages = with pkgs; [ phpPackages.composer php fish node2nix nodejs yarn ];
+        # packages = with pkgs; [ phpPackages.composer php fish node2nix nodejs yarn ];
+          # echo "node `${pkgs.nodejs}/bin/node --version`"
+        packages = with pkgs; [ phpPackages.composer php fish ];
 
         shellHook = ''
           echo "`${pkgs.php}/bin/php --version`"
-          echo "node `${pkgs.nodejs}/bin/node --version`"
           fish
         '';
       };
