@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d9f0539ac36949bd54ca94198a2c3055",
+    "content-hash": "7227c8baa635be9af020c6fbe5c4df90",
     "packages": [
         {
             "name": "composer/installers",
@@ -1171,6 +1171,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wp-cloudflare-page-cache/"
+        },
+        {
+            "name": "wpackagist-theme/blocksy",
+            "version": "1.8.95",
+            "source": {
+                "type": "svn",
+                "url": "https://themes.svn.wordpress.org/blocksy/",
+                "reference": "1.8.95"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/theme/blocksy.1.8.95.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-theme",
+            "homepage": "https://wordpress.org/themes/blocksy/"
         },
         {
             "name": "wpackagist-theme/twentytwentythree",
