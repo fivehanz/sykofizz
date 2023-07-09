@@ -43,7 +43,6 @@
     "wpackagist-theme/twentytwentythree": "^1.0",
     "wpackagist-plugin/wp-cloudflare-page-cache": "^4.7",
     "wpackagist-plugin/autoptimize": "3.1.8.1",
-    "wpackagist-plugin/complianz-gdpr": "^6.5",
     "wpackagist-theme/blocksy": "^1.8",
     "wpackagist-plugin/blocksy-companion": "^1.8"
   },
