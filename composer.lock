@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f780b6a7e67098fedcdbdd56599c182f",
+    "content-hash": "2507f8bf5055a320d0eee27279487f4e",
     "packages": [
         {
             "name": "composer/installers",
@@ -1189,6 +1189,24 @@
             },
             "type": "wordpress-theme",
             "homepage": "https://wordpress.org/themes/mahan/"
+        },
+        {
+            "name": "wpackagist-theme/martanda",
+            "version": "1.0.2",
+            "source": {
+                "type": "svn",
+                "url": "https://themes.svn.wordpress.org/martanda/",
+                "reference": "1.0.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/theme/martanda.1.0.2.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-theme",
+            "homepage": "https://wordpress.org/themes/martanda/"
         },
         {
             "name": "wpackagist-theme/twentytwentythree",
