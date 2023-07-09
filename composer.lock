@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7227c8baa635be9af020c6fbe5c4df90",
+    "content-hash": "28ae71429e58bc508b1b9f2be25707b9",
     "packages": [
         {
             "name": "composer/installers",
@@ -1135,6 +1135,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/autoptimize/"
+        },
+        {
+            "name": "wpackagist-plugin/blocksy-companion",
+            "version": "1.8.95",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/blocksy-companion/",
+                "reference": "tags/1.8.95"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/blocksy-companion.1.8.95.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/blocksy-companion/"
         },
         {
             "name": "wpackagist-plugin/complianz-gdpr",
