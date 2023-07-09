@@ -45,7 +45,8 @@
     "wpackagist-plugin/autoptimize": "3.1.8.1",
     "wpackagist-plugin/complianz-gdpr": "^6.5",
     "wpackagist-theme/mahan": "^1.0",
-    "wpackagist-theme/martanda": "^1.0"
+    "wpackagist-theme/martanda": "^1.0",
+    "wpackagist-theme/spectra-one": "^1.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2507f8bf5055a320d0eee27279487f4e",
+    "content-hash": "82fde22127c977e3819868d11a7f05f2",
     "packages": [
         {
             "name": "composer/installers",
@@ -1207,6 +1207,24 @@
             },
             "type": "wordpress-theme",
             "homepage": "https://wordpress.org/themes/martanda/"
+        },
+        {
+            "name": "wpackagist-theme/spectra-one",
+            "version": "1.0.1",
+            "source": {
+                "type": "svn",
+                "url": "https://themes.svn.wordpress.org/spectra-one/",
+                "reference": "1.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/theme/spectra-one.1.0.1.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-theme",
+            "homepage": "https://wordpress.org/themes/spectra-one/"
         },
         {
             "name": "wpackagist-theme/twentytwentythree",
