@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c8f4f98a3df4fe8baf69d115d78b0bd6",
+    "content-hash": "2ec7cfbb443bdb991f137b0272cd93d3",
     "packages": [
         {
             "name": "composer/installers",
@@ -1153,6 +1153,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/blocksy-companion/"
+        },
+        {
+            "name": "wpackagist-plugin/stackable-ultimate-gutenberg-blocks",
+            "version": "3.9.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/stackable-ultimate-gutenberg-blocks/",
+                "reference": "tags/3.9.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/stackable-ultimate-gutenberg-blocks.3.9.1.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/stackable-ultimate-gutenberg-blocks/"
         },
         {
             "name": "wpackagist-plugin/wp-cloudflare-page-cache",
