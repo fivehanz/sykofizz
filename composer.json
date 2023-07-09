@@ -40,7 +40,10 @@
     "roots/wordpress": "6.2.2",
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.1.0",
-    "wpackagist-theme/twentytwentythree": "^1.0"
+    "wpackagist-theme/twentytwentythree": "^1.0",
+    "wpackagist-plugin/wp-cloudflare-page-cache": "^4.7",
+    "wpackagist-plugin/autoptimize": "3.1.8.1",
+    "wpackagist-plugin/complianz-gdpr": "^6.5"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",
