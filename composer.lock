@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82fde22127c977e3819868d11a7f05f2",
+    "content-hash": "439ba9a983c8525e007142c601d74900",
     "packages": [
         {
             "name": "composer/installers",
@@ -1171,42 +1171,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wp-cloudflare-page-cache/"
-        },
-        {
-            "name": "wpackagist-theme/mahan",
-            "version": "1.0.0",
-            "source": {
-                "type": "svn",
-                "url": "https://themes.svn.wordpress.org/mahan/",
-                "reference": "1.0.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/mahan.1.0.0.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-theme",
-            "homepage": "https://wordpress.org/themes/mahan/"
-        },
-        {
-            "name": "wpackagist-theme/martanda",
-            "version": "1.0.2",
-            "source": {
-                "type": "svn",
-                "url": "https://themes.svn.wordpress.org/martanda/",
-                "reference": "1.0.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/martanda.1.0.2.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-theme",
-            "homepage": "https://wordpress.org/themes/martanda/"
         },
         {
             "name": "wpackagist-theme/spectra-one",
