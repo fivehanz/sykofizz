@@ -1,37 +1,25 @@
 {
-  description = "A Nix-flake-based PHP development environment";
+  description = "A Nix-flake-based Elixir development environment";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/release-22.11";
-    flake-utils.url = "github:numtide/flake-utils";
-  };
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-  outputs =
-    { self
-    , nixpkgs
-    , flake-utils
-    }:
-
-    flake-utils.lib.eachDefaultSystem (system:
+  outputs = { self, nixpkgs }:
     let
-      # overlays = [
-      #   (self: super: rec {
-      #     nodejs = super.nodejs-18_x;
-      #     yarn = (super.yarn.override { inherit nodejs; });
-      #   })
-      # ];
-      pkgs = import nixpkgs { inherit system; };
+      supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {
+        pkgs = import nixpkgs { inherit system; };
+      });
     in
     {
-      devShell = pkgs.mkShell {
-        # packages = with pkgs; [ phpPackages.composer php fish node2nix nodejs yarn ];
-          # echo "node `${pkgs.nodejs}/bin/node --version`"
-        packages = with pkgs; [ phpPackages.composer php fish ];
-
-        shellHook = ''
-          echo "`${pkgs.php}/bin/php --version`"
-          fish
-        '';
-      };
-    });
+      devShells = forEachSupportedSystem ({ pkgs }: {
+        default = pkgs.mkShell {
+          packages = (with pkgs; [ elixir_1_15 ]) ++
+            # Linux only
+            pkgs.lib.optionals (pkgs.stdenv.isLinux) (with pkgs; [ gigalixir inotify-tools libnotify ]) ++
+            # macOS only
+            pkgs.lib.optionals (pkgs.stdenv.isDarwin) (with pkgs; [ terminal-notifier ]) ++
+            (with pkgs.darwin.apple_sdk.frameworks; [ CoreFoundation CoreServices ]);
+        };
+      });
+    };
 }
