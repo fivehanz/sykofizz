@@ -1,0 +1,6 @@
+[settings]
+experimental = true
+
+[tools]
+elixir = "1.15.4-otp-26"
+node = "18.14.1"
