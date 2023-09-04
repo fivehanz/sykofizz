@@ -52,7 +52,10 @@ defmodule Sykofizz.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:ash, "~> 2.14"},
       {:ash_postgres, "~> 1.3"},
-      {:ash_phoenix, "~> 1.2"}
+      {:ash_phoenix, "~> 1.2"},
+      {:ash_authentication, "~> 3.11"},
+      {:ash_authentication_phoenix, "~> 1.7"},
+      {:ash_graphql, "~> 0.26.0"}
     ]
   end
 

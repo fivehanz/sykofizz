@@ -67,3 +67,6 @@ import_config "#{config_env()}.exs"
 # For backwards compatibility, the following configuration is required.
 # see https://ash-hq.org/docs/guides/ash/latest/get-started#temporary-config for more details
 config :ash, :use_all_identities_in_manage_relationship?, false
+
+# ash graphql backward compatibility
+config :ash_graphql, :default_managed_relationship_type_name_template, :action_name
