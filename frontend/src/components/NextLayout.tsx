@@ -6,7 +6,7 @@ const NextLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <React.StrictMode>
       <NextUIProvider>
-        <div className="dark text-foreground bg-background min-h-screen">
+        <div className="min-h-screen">
           <header>
             <NavBar />
           </header>
