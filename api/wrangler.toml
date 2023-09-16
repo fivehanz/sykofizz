@@ -1,0 +1,5 @@
+name = "sykofizz-api"
+compatibility_date = "2023-01-01"
+
+[vars]
+LIBSQL_DB_URL = "libsql://sykofizz-fivehanz.turso.io"
