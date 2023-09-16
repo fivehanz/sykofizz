@@ -4,10 +4,14 @@
     "deploy": "wrangler deploy --minify src/index.ts"
   },
   "dependencies": {
+    "@libsql/client": "^0.3.4",
+    "@trpc/server": "^10.38.3",
+    "drizzle-orm": "^0.28.6",
     "hono": "^3.6.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230821.0",
+    "drizzle-kit": "^0.19.13",
     "wrangler": "^3.7.0"
   }
 }
