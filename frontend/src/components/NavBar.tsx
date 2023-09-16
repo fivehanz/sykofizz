@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Navbar,
   NavbarMenu,
@@ -12,19 +12,35 @@ import {
 } from "@nextui-org/react";
 
 const NavBar = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
+  type Color =
+    | "foreground"
+    | "primary"
+    | "danger"
+    | "secondary"
+    | "success"
+    | "warning"
+    | undefined;
+  type Size = "lg" | "sm" | "md" | undefined;
+
+  type MenuItem = {
+    label: string;
+    color: Color;
+    size: Size;
+  };
+
+  const menuItems: MenuItem[] = [
+    { label: "Profile", color: "foreground", size: "lg" },
+    { label: "Dashboard", color: "foreground", size: "lg" },
+    { label: "Activity", color: "primary", size: "lg" },
+    { label: "Analytics", color: "foreground", size: "lg" },
+    { label: "System", color: "foreground", size: "lg" },
+    { label: "Deployments", color: "foreground", size: "lg" },
+    { label: "My Settings", color: "foreground", size: "lg" },
+    { label: "Team Settings", color: "foreground", size: "lg" },
+    { label: "Help & Feedback", color: "foreground", size: "lg" },
+    { label: "Log Out", color: "danger", size: "lg" },
   ];
 
   return (
@@ -68,20 +84,14 @@ const NavBar = () => {
       </NavbarContent>
       <NavbarMenu>
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
+          <NavbarMenuItem key={`${item.label}-${index}`}>
             <Link
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
+              color={item.color}
               className="w-full"
               href="#"
-              size="lg"
+              size={item.size}
             >
-              {item}
+              {item.label}
             </Link>
           </NavbarMenuItem>
         ))}
