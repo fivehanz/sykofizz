@@ -3,4 +3,4 @@ experimental = true
 
 [tools]
 elixir = "1.15.4-otp-26"
-bun = "1.0.0"
+bun = "latest"
