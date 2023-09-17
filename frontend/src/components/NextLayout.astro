@@ -1,17 +1,15 @@
 ---
-import React from "react";
 import { NextUIProvider } from "@nextui-org/react";
 import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer.astro";
 ---
 
 <NextUIProvider>
   <header>
     <NavBar client:load />
   </header>
-  <main class="px-6 mx-auto">
+  <main class="px-6 mx-auto h-screen">
     <slot />
   </main>
-  <footer>
-    <p class="px-6 my-4">Footer</p>
-  </footer>
+  <Footer/>
 </NextUIProvider>
