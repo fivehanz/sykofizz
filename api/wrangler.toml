@@ -1,7 +1,0 @@
-name = "sykofizz-api"
-compatibility_date = "2023-01-01"
-
-route = { pattern = "sykofizz.hanz.lol/api/*", zone_name = "hanz.lol" }
-
-[vars]
-LIBSQL_DB_URL = "libsql://sykofizz-fivehanz.turso.io"

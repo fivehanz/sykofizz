@@ -2,5 +2,6 @@
 experimental = true
 
 [tools]
-elixir = "1.15.4-otp-26"
+# elixir = "1.15.4-otp-26"
 bun = "latest"
+node = "20"

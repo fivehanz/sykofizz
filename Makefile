@@ -1,27 +1,27 @@
 MAKEFLAGS += -j2
 
-default: build-frontend 
-deps: deps-frontend deps-backend
-dev: dev-backend dev-frontend
-deploy: deploy-backend
+default: build-frontend build-api 
+deps: deps-frontend deps-api
+dev: dev-api dev-frontend
+# deploy: deploy-api
 
-build-backend:
-	env MIX_ENV=prod mix release --overwrite
+build-api:
+	cd api && bun run build
 	
 build-frontend:
 	cd frontend && bun --bun astro build
 
-deps-backend:
+deps-api:
 	cd api && bun install
 
 deps-frontend:
 	cd frontend && bun install
 
-dev-backend:
-	cd api && bunx wrangler dev src/index.ts
+dev-api:
+	cd api && bun run start  
 
 dev-frontend:
 	cd frontend && bun --bun astro dev
 
-deploy-backend:
-	cd api && bunx wrangler deploy src/index.ts --minify 
+# deploy-backend:
+	# cd api && bunx wrangler deploy src/index.ts --minify 
