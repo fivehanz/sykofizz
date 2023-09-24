@@ -5,3 +5,4 @@ experimental = true
 # elixir = "1.15.4-otp-26"
 bun = "latest"
 node = "20"
+just = "1.14.0"
