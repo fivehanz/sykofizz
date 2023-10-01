@@ -2,7 +2,7 @@
 experimental = true
 
 [tools]
-# elixir = "1.15.4-otp-26"
 bun = "latest"
 node = "20"
 just = "1.14.0"
+python = "3.11"
