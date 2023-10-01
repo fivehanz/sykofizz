@@ -1,7 +1,7 @@
 MAKEFLAGS += -j2
 
 default: build-frontend build-api 
-deps: deps-frontend deps-api
+deps: deps-frontend deps-cms
 dev: dev-api dev-frontend
 # deploy: deploy-api
 
@@ -16,6 +16,9 @@ deps-api:
 
 deps-frontend:
 	cd frontend && bun install
+
+deps-cms:
+	cd cms && pip install -r requirements.txt
 
 dev-api:
 	cd api && bun run start  
