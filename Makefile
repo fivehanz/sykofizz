@@ -2,7 +2,8 @@ MAKEFLAGS += -j2
 
 default: build-frontend build-api 
 deps: deps-frontend deps-cms
-dev: dev-cms 
+dev: dev-cms
+migrate: cms-make-migrate
 # deploy: deploy-api
 
 build-api:
@@ -22,6 +23,9 @@ deps-cms:
 
 dev-cms: 
 	cd cms && python manage.py runserver
+
+cms-make-migrate:
+	cd cms && python manage.py makemigrations && python manage.py migrate
 
 dev-api:
 	cd api && bun run start  
