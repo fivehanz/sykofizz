@@ -1,22 +1,17 @@
 MAKEFLAGS += -j2
 
-default: build-frontend build-api 
+default: build-frontend build-cms 
+clean: clean-frontend clean-cms
 deps: deps-frontend deps-cms
-dev: dev-cms
+dev: dev-frontend dev-cms 
 migrate: cms-make-migrate
 # deploy: deploy-api
-
-build-api:
-	cd api && bun run build
 	
 build-frontend:
-	cd frontend && bun --bun astro build
-
-deps-api:
-	cd api && bun install
+	cd cms && bunx tailwindcss -i ./static/src/input.css -o ./static/src/output.css --minify
 
 deps-frontend:
-	cd frontend && bun install
+	cd cms && bun install
 
 deps-cms:
 	cd cms && pip install -r requirements.txt
@@ -31,7 +26,7 @@ dev-api:
 	cd api && bun run start  
 
 dev-frontend:
-	cd frontend && bun --bun astro dev
+	cd cms && bunx tailwindcss -i ./static/src/input.css -o ./static/src/output.css --watch
 
 # deploy-backend:
 	# cd api && bunx wrangler deploy src/index.ts --minify 
