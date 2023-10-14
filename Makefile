@@ -1,16 +1,16 @@
 MAKEFLAGS += -j2
 
-default: build-frontend build-cms 
-clean: clean-frontend clean-cms
-deps: deps-frontend deps-cms
-dev: dev-frontend dev-cms 
+default: build-tailwind build-cms 
+clean: clean-tailwind clean-cms
+deps: deps-tailwind deps-cms
+dev: dev-tailwind dev-cms 
 migrate: cms-make-migrate
 # deploy: deploy-api
 	
-build-frontend:
+build-tailwind:
 	cd cms && bunx tailwindcss -i ./static/src/input.css -o ./static/src/output.css --minify
 
-deps-frontend:
+deps-tailwind:
 	cd cms && bun install
 
 deps-cms:
@@ -25,7 +25,7 @@ cms-make-migrate:
 dev-api:
 	cd api && bun run start  
 
-dev-frontend:
+dev-tailwind:
 	cd cms && bunx tailwindcss -i ./static/src/input.css -o ./static/src/output.css --watch
 
 # deploy-backend:
