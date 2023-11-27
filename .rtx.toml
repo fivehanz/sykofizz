@@ -3,4 +3,5 @@ experimental = true
 
 [tools]
 bun = "latest"
+python = "3.11"
 just = "1.14.0"

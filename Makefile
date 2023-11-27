@@ -1,20 +1,22 @@
 MAKEFLAGS += -j2
 
-default: build-tailwind build-cms 
+default: build-sass build-cms 
 clean: clean-tailwind clean-cms
 deps: deps-tailwind deps-cms
-dev: dev-tailwind dev-cms 
+dev: dev-sass dev-cms 
 migrate: cms-make-migrate
 # deploy: deploy-api
-	
-build-tailwind:
-	cd cms && bunx tailwindcss -i ./static/src/input.css -o ./static/src/output.css --minify
 
-deps-tailwind:
-	cd cms && bun install
+rtx:
+	# brew install libb2 openssl readline gettext
+	env PYTHON_CONFIGURE_OPTS="--enable-optimizations --disable-ipv6" env LDFLAGS="-fuse-ld=lld" ARCHFLAGS="-arch arm64" rtx i
+
+build-sass:
+	cd cms && python manage.py sass ./website/static/website/src/custom.scss ./website/static/website/css/custom.css
+
 
 deps-cms:
-	cd cms && pip install -r requirements.txt
+	cd cms && python -m pip install -r requirements-dev.txt
 
 dev-cms: 
 	cd cms && python manage.py runserver
@@ -25,8 +27,8 @@ cms-make-migrate:
 dev-api:
 	cd api && bun run start  
 
-dev-tailwind:
-	cd cms && bunx tailwindcss -i ./static/src/input.css -o ./static/src/output.css --watch
+dev-sass:
+	cd cms && python manage.py sass ./website/static/website/src/custom.scss ./website/static/website/css/custom.css --watch
 
 # deploy-backend:
 	# cd api && bunx wrangler deploy src/index.ts --minify 
