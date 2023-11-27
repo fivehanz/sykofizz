@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.8.0](https://github.com/fivehanz/sykofizz/compare/v1.7.0...v1.8.0) (2023-11-27)
+
+
+### Features
+
+* Wagtail CRX init ([#36](https://github.com/fivehanz/sykofizz/issues/36)) ([14ad192](https://github.com/fivehanz/sykofizz/commit/14ad1924d84b7965591cc1aa37afdc47e8cae48c))
+
+
+### Bug Fixes
+
+* doc root w/ apache ([c51a7a6](https://github.com/fivehanz/sykofizz/commit/c51a7a6f73ac0a117dd3adfaea2bf76d67757e2a))
+* navbar js client load ([257d43b](https://github.com/fivehanz/sykofizz/commit/257d43b30e2d49064ffce28e94837fd663fa2a81))
+
 ## [1.7.0](https://github.com/fivehanz/sykofizz/compare/v1.6.1...v1.7.0) (2023-06-24)
 
 
