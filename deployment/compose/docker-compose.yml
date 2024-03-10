@@ -27,6 +27,7 @@ services:
     networks:
       - sf-nw
     environment:
+      - url=${SITE_URL}
       - NODE_ENV=production
       - database__client=mysql
       - database__connection__host=mysql
