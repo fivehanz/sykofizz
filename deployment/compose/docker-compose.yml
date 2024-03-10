@@ -27,7 +27,7 @@ services:
     networks:
       - sf-nw
     environment:
-      - NODE_ENV=production
+      NODE_ENV=production
       database__client: mysql
       database__connection__user: ghost_user
       database__connection__database: ghost_db
