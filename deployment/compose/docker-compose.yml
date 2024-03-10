@@ -16,22 +16,22 @@ services:
       - MYSQL_ROOT_PASSWORD=${GHOST_DATABASE_PASSWORD}-root
 
   ghost:
-    image: docker.io/bitnami/ghost:5
+    image: ghost:5
     restart: unless-stopped
     ports:
       - '2368:2368'
     volumes:
-      - /opt/persistence/sykofizz-website/ghost:/bitnami/ghost
+      - /opt/persistence/sykofizz-website/ghost:/var/lib/ghost/content
     depends_on:
       - mysql
     networks:
       - sf-nw
     environment:
-      - GHOST_DATABASE_HOST=mysql
-      - GHOST_DATABASE_PORT_NUMBER=3306
-      - GHOST_DATABASE_USER=ghost_user
-      - GHOST_DATABASE_NAME=ghost_db
-      - GHOST_DATABASE_PASSWORD=${GHOST_DATABASE_PASSWORD}
+      - NODE_ENV=production
+      database__client: mysql
+      database__connection__user: ghost_user
+      database__connection__database: ghost_db
+      database__connection__password: ${GHOST_DATABASE_PASSWORD}
 
 networks:
   sf-nw:
