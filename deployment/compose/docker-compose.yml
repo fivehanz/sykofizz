@@ -29,6 +29,7 @@ services:
     environment:
       - NODE_ENV=production
       - database__client=mysql
+      - database__connection__host=db
       - database__connection__user=ghost_user
       - database__connection__database=ghost_db
       - database__connection__password=${GHOST_DATABASE_PASSWORD}
