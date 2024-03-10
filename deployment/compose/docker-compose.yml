@@ -1,25 +1,11 @@
-# Copyright VMware, Inc.
-# SPDX-License-Identifier: APACHE-2.0
-
 version: '3.8'
 
 services:
-  nginx:
-    image: nginx:1.24
-    restart: unless-stopped
-    ports:
-      - '80:80'
-      - '443:443'
-    networks:
-      - sf-nw
-    volumes:
-      - './nginx.conf:/etc/nginx/nginx.conf'
-
   mysql:
     image: docker.io/bitnami/mysql:8.0
     restart: unless-stopped
     volumes:
-      - 'mysql_data:/bitnami/mysql'
+      - /opt/databases/sykofizz-website/mysql:/bitnami/mysql
     networks:
       - sf-nw
       - db
@@ -35,15 +21,12 @@ services:
     ports:
       - '2368:2368'
     volumes:
-      - 'ghost_data:/bitnami/ghost'
-      # - '../../ghost/config.production.json:/opt/bitnami/ghost/config.production.json'
+      - /opt/persistence/sykofizz-website/ghost:/bitnami/ghost
     depends_on:
       - mysql
-      - nginx
     networks:
       - sf-nw
     environment:
-      - GHOST_HOST=sykofizz.com
       - GHOST_DATABASE_HOST=mysql
       - GHOST_DATABASE_PORT_NUMBER=3306
       - GHOST_DATABASE_USER=ghost_user
@@ -54,9 +37,3 @@ networks:
   sf-nw:
     driver: bridge
   db:
-
-volumes:
-  mysql_data:
-    driver: local
-  ghost_data:
-    driver: local

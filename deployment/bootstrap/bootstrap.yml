@@ -1,6 +1,6 @@
 ---
 
-- hosts: "{{ target }}"
+- hosts: "vm"
   become: true
   tasks:
     - name: configure firewall
@@ -13,44 +13,42 @@
           - "80"
           - "443"
 
-    # - name: install ssl-cert pkg
-    #   apt:
-    #     name: ssl-cert
-    #
-    # - name: generate snakeoil ssl certs
-    #   command: make-ssl-cert generate-default-snakeoil
-    #
-    #
-    # - name: install and setup NGINX
-    #   ansible.builtin.include_role:
-    #     name: geerlingguy.NGINX
-    #   vars:
-    #     nginx_service_state: started
-    #     nginx_service_enabled: true
-    #
-    #     nginx_worker_processes: "auto" 
-    #     nginx_worker_connections: "8000"
-    #     nginx_extra_conf_options: |
-    #       worker_rlimit_nofile 8192; # find ways to increase it to max 65555
-    #
-    #     nginx_multi_accept: "on"
-    #     nginx_server_tokens: "off" # disable nginx version sent 
-    #     nginx_tcp_nodelay: "off" # enable nagle buffering algorithm
-    #
-    #     nginx_remove_default_vhost: true
-    #     nginx_vhosts:
-    #       - listen: "443 default_server ssl http2"
-    #         server_name: "_"
-    #         root: "/var/www/html"
-    #         index: "index.html intex.htm index.nginx-debian.html"
-    #         state: "present"
-    #         filename: "default.conf"
-    #         extra_parameters: |
-    #           location / {
-    #             try_files $uri $uri/ =404;
-    #           }
-    #           include snippets/snakeoil.conf;
-    #
+    - name: install ssl-cert pkg
+      apt:
+        name: ssl-cert
+
+    - name: generate snakeoil ssl certs
+      command: make-ssl-cert generate-default-snakeoil
+
+    - name: install and setup NGINX
+      ansible.builtin.include_role:
+        name: geerlingguy.NGINX
+      vars:
+        nginx_service_state: started
+        nginx_service_enabled: true
+
+        nginx_worker_processes: "auto" 
+        nginx_worker_connections: "8000"
+        nginx_extra_conf_options: |
+          worker_rlimit_nofile 8192; # find ways to increase it to max 65555
+
+        nginx_multi_accept: "on"
+        nginx_server_tokens: "off" # disable nginx version sent 
+        nginx_tcp_nodelay: "off" # enable nagle buffering algorithm
+        nginx_remove_default_vhost: true
+        nginx_vhosts:
+          - listen: "443 default_server ssl http2"
+            server_name: "_"
+            root: "/var/www/html"
+            index: "index.html intex.htm index.nginx-debian.html"
+            state: "present"
+            filename: "default.conf"
+            extra_parameters: |
+              location / {
+                try_files $uri $uri/ =404;
+              }
+              include snippets/snakeoil.conf;
+
   roles:
     - geerlingguy.docker
     - geerlingguy.pip

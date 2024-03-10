@@ -1,34 +1,23 @@
 MAKEFLAGS += -j2
 
-default: build-sass build-cms 
-clean: clean-tailwind clean-cms
-deps: deps-tailwind deps-cms
-dev: dev-sass dev-cms 
-migrate: cms-make-migrate
-# deploy: deploy-api
+bootstrap: bootstrap-vm
+nginx-init: prod-nginx-link
 
-rtx:
-	# brew install libb2 openssl readline gettext
-	env PYTHON_CONFIGURE_OPTS="--enable-optimizations --disable-ipv6" env LDFLAGS="-fuse-ld=lld" ARCHFLAGS="-arch arm64" rtx i
+### new vm
+bootstrap-vm:
+	cd ./deployment/bootstrap/ && ansible-playbook bootstrap.yml -K \
+		--extra-vars "host=syko.711666.xyz user=hanz key=/Users/hanz/.ssh/id_ed25519" 
 
-build-sass:
-	cd cms && python manage.py sass ./website/static/website/src/custom.scss ./website/static/website/css/custom.css
+### PRODUCTION COMMANDS
+prod-start:
+	docker compose --env-file .env --file ./deployment/compose/docker-compose.yml up -d
+prod-rebuild:
+	docker compose --env-file .env --file ./deployment/compose/docker-compose.yml up -d --build
+prod-restart:
+	docker compose --env-file .env --file ./deployment/compose/docker-compose.yml up -d --force-recreate	
+prod-stop:
+	docker compose --env-file .env --file ./deployment/compose/docker-compose.yml down
 
-
-deps-cms:
-	cd cms && python -m pip install -r requirements-dev.txt
-
-dev-cms: 
-	cd cms && python manage.py runserver
-
-cms-make-migrate:
-	cd cms && python manage.py makemigrations && python manage.py migrate
-
-dev-api:
-	cd api && bun run start  
-
-dev-sass:
-	cd cms && python manage.py sass ./website/static/website/src/custom.scss ./website/static/website/css/custom.css --watch
-
-# deploy-backend:
-	# cd api && bunx wrangler deploy src/index.ts --minify 
+prod-nginx-link:
+	ln -s ${shell pwd}/deployment/nginx/vhost.conf /etc/nginx/sites-enabled/sykofizz-website.conf
+	nginx -s reload
