@@ -21,3 +21,10 @@ prod-stop:
 prod-nginx-link:
 	ln -s ${shell pwd}/deployment/nginx/vhost.conf /etc/nginx/sites-enabled/sykofizz-website.conf
 	nginx -s reload
+
+
+listmonk-install:
+	docker compose --env-file .env --file ./deployment/compose/docker-compose.yml run --rm listmonk ./listmonk --install
+
+listmonk-upgrade:
+	docker compose --env-file .env --file ./deployment/compose/docker-compose.yml run --rm listmonk ./listmonk --upgrade
