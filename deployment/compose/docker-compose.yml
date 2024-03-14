@@ -1,6 +1,7 @@
 version: '3.8'
 
 services:
+  ##### databases #####
   mysql:
     image: docker.io/bitnami/mysql:8.0
     restart: unless-stopped
@@ -8,13 +9,32 @@ services:
       - /opt/databases/sykofizz-website/mysql:/bitnami/mysql
     networks:
       - sf-nw
-      - db
     environment:
       - MYSQL_USER=ghost_user
       - MYSQL_DATABASE=ghost_db
       - MYSQL_PASSWORD=${GHOST_DATABASE_PASSWORD}
       - MYSQL_ROOT_PASSWORD=${GHOST_DATABASE_PASSWORD}-root
+  
+  postgres:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    volumes:
+      - /opt/databases/listmonk/postgresql/db:/var/lib/postgresql/db
+    networks:
+      - lm-nw
+    environment:
+      - POSTGRES_DB=listmonk-db
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=dbpassword
+      - PGDATA=/var/lib/postgresql/db
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
 
+
+  ##### apps #####
   ghost:
     image: ghost:5
     restart: unless-stopped
@@ -34,8 +54,31 @@ services:
       - database__connection__user=ghost_user
       - database__connection__database=ghost_db
       - database__connection__password=${GHOST_DATABASE_PASSWORD}
+ 
+  listmonk:
+    image: listmonk/listmonk:latest
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    ports:
+      - "9000:9000"
+    networks:
+      - lm-nw
+    environment:
+      - TZ=Europe/Berlin
+      - LISTMONK_app__address="0.0.0.0:9000"
+      - LISTMONK_db__host=postgres
+      - LISTMONK_db__port=5432
+      - LISTMONK_db__user=user
+      - LISTMONK_db__password=dbpassword
+      - LISTMONK_db__database=listmonk-db
+      - LISTMONK_db__ssl_mode=disable
+      - LISTMONK_app__admin_username=${LISTMONK_ADMIN_USERNAME}
+      - LISTMONK_app__admin_password=${LISTMONK_ADMIN_PASSWORD}
+
 
 networks:
   sf-nw:
     driver: bridge
-  db:
+  lm-nw:
+    driver: bridge
