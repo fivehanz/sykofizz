@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "sykofizz"
+version = "1.8.0"
+description = "sykofizz"
+authors = ["Hanz <haniel56@zoho.eu>"]
+license = "BSD"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django-plausible = "^0.5.0"
+psycopg2-binary = "^2.9.9"
+whitenoise = "^6.7.0"
+dj-database-url = "^2.2.0"
+django-dbbackup = "^4.2.1"
+django-anymail = "^12.0"
+django-storages = {extras = ["s3"], version = "^1.14.4"}
+redis = {extras = ["hiredis"], version = "^5.0.8"}
+wagtail = "^6.2.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
