@@ -18,6 +18,8 @@ django-anymail = "^12.0"
 django-storages = {extras = ["s3"], version = "^1.14.4"}
 redis = {extras = ["hiredis"], version = "^5.0.8"}
 wagtail = "^6.2.1"
+wagtail-seo = "^2.5.0"
+wagtail-cache = "^2.5.1"
 
 
 [build-system]

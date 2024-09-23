@@ -1083,6 +1083,33 @@ docs = ["Sphinx (>=7.0)", "myst-parser (==2.0.0)", "pyenchant (>=3.1.1,<4)", "sp
 testing = ["Jinja2 (>=3.0,<3.2)", "azure-mgmt-cdn (>=12.0,<13.0)", "azure-mgmt-frontdoor (>=1.0,<1.1)", "boto3 (>=1.28,<2)", "coverage (>=3.7.0)", "curlylint (==0.13.1)", "django-pattern-library (>=0.7)", "djhtml (==3.0.6)", "doc8 (==0.8.1)", "factory-boy (>=3.2)", "freezegun (>=0.3.8)", "polib (>=1.1,<2.0)", "python-dateutil (>=2.7)", "pytz (>=2014.7)", "ruff (==0.1.5)", "semgrep (==1.40.0)", "tblib (>=2.0,<3.0)"]
 
 [[package]]
+name = "wagtail-cache"
+version = "2.5.1"
+description = "A simple page cache for Wagtail based on the Django cache middleware."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "wagtail_cache-2.5.1-py3-none-any.whl", hash = "sha256:1e8133f88d60bf7c6f97f6858e79d846394c70a22d82722e10c79c3d32d456ad"},
+    {file = "wagtail_cache-2.5.1.tar.gz", hash = "sha256:6344342dd0c383ec2eac80195d48aa61a4a1966992a12be23013342f9341c20d"},
+]
+
+[package.dependencies]
+wagtail = ">=3.0,<7"
+
+[[package]]
+name = "wagtail-seo"
+version = "2.5.0"
+description = "Search engine and social media optimization for Wagtail."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "wagtail_seo-2.5.0-py3-none-any.whl", hash = "sha256:07b1bec067fcf881ade65d36d5096b00b2304e91602fd5a4bc0ad50177fe4fb9"},
+]
+
+[package.dependencies]
+wagtail = ">=3.0,<7.0"
+
+[[package]]
 name = "whitenoise"
 version = "6.7.0"
 description = "Radically simplified static file serving for WSGI applications"
@@ -1125,4 +1152,4 @@ wand = ["Wand (>=0.6,<1.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "eec55e039ec818611036cc9c4fe31446e1e27a786ba628e6aa34280cb8c2e745"
+content-hash = "050d081a583e91ce773a107566068d01161b57d940ee1c761b6d694e257df2b3"

@@ -1,12 +1,19 @@
 MAKEFLAGS += -j2
 
-bootstrap: bootstrap-vm
 nginx-init: prod-nginx-link
+dev: dev-docker-start
 
-### new vm
-bootstrap-vm:
-	cd ./deployment/bootstrap/ && ansible-playbook bootstrap.yml -K \
-		--extra-vars "host=syko.711666.xyz user=hanz key=/Users/hanz/.ssh/id_ed25519" 
+
+#### DEV ####
+
+dev-docker-start:
+	docker compose --file ./docker-compose.dev.yml up -d
+
+dev-docker-stop:
+	docker compose --file ./docker-compose.dev.yml down
+
+dev-docker-rebuild:
+	docker compose --file ./docker-compose.dev.yml up -d --build --force-recreate
 
 ### PRODUCTION COMMANDS
 prod-start:
