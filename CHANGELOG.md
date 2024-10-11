@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.9.0](https://github.com/fivehanz/sykofizz/compare/v1.8.0...v1.9.0) (2024-10-11)
+
+
+### Features
+
+* astro frontend init ([218ddb1](https://github.com/fivehanz/sykofizz/commit/218ddb1803ba3d7fda5d5fe7c714261b6a6a68e5))
+* move to node for astro ([57cfc6f](https://github.com/fivehanz/sykofizz/commit/57cfc6f822f3da96d719b48da6ce7846d89be45b))
+
 ## [1.8.0](https://github.com/fivehanz/sykofizz/compare/v1.7.0...v1.8.0) (2023-11-27)
 
 
