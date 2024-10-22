@@ -13,7 +13,7 @@ services:
   #     - ./media:/app/media
   #     - ./static:/app/static
 
-  web:
+  backend:
     build:
       context: .
       dockerfile: dev.Dockerfile
@@ -34,9 +34,23 @@ services:
       - RUN_MIGRATION=true
     env_file:
       - .env
-
-  # remark42:
-  #   image: umputun/remark42:v1.13.1
+  
+  remark42:
+    image: umputun/remark42:v1.13.1
+    restart: unless-stopped
+    volumes:
+      - remark42-data:/srv/var
+    ports:
+      - "8080:8080"
+    networks:
+      - sfizz-nw
+    environment:
+      - DEBUG=true
+      - ADMIN_PASSWD=password
+      - REMARK_URL=http://127.0.0.1:8080
+      - SECRET=some-secret-key
+    env_file:
+      - .env
 
   # celery_worker:
   #   container_name: hanz_celery_worker
@@ -115,3 +129,4 @@ networks:
 
 volumes:
   sfizz-db-data:
+  remark42-data:

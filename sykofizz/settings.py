@@ -65,6 +65,8 @@ INSTALLED_APPS = [
     "taggit",
     "wagtailcache",
     "wagtailseo",
+    'wagtail.api.v2',
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
