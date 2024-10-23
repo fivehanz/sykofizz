@@ -208,4 +208,4 @@ STORAGES["default"] = {
 }
 
 WAGTAIL_SITE_NAME = "sykofizz"
-WAGTAILADMIN_BASE_URL = "https://sykofizz.com"
+WAGTAILADMIN_BASE_URL = "https://syko.sykofizz.com"
