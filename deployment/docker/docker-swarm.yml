@@ -14,7 +14,7 @@ services:
     networks:
       - sfizz-nw
     ports: 
-      - "52222:8080"
+      - "52222:8000"
     restart: unless-stopped
     env_file:
       - .env
