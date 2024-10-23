@@ -9,7 +9,6 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.11"
-django-plausible = "^0.5.0"
 psycopg2-binary = "^2.9.9"
 whitenoise = "^6.7.0"
 dj-database-url = "^2.2.0"
@@ -20,6 +19,7 @@ redis = {extras = ["hiredis"], version = "^5.0.8"}
 wagtail = "^6.2.1"
 wagtail-seo = "^2.5.0"
 wagtail-cache = "^2.5.1"
+granian = "^1.6.1"
 
 
 [build-system]
