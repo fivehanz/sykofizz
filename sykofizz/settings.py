@@ -66,12 +66,13 @@ INSTALLED_APPS = [
     "wagtailcache",
     "wagtailseo",
     'wagtail.api.v2',
-    "rest_framework",
+    # "rest_framework",
 ]
 
 MIDDLEWARE = [
     "wagtailcache.cache.UpdateCacheMiddleware",  # wagtail cache
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
