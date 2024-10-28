@@ -20,7 +20,7 @@ compress_static() {
 
 if [ "${COLLECT_STATIC:-false}" = true ]; then
   collect_static
-  compress_static
+  # compress_static
 else
   echo "------------------ skipping collect static files -----------------"
 fi
