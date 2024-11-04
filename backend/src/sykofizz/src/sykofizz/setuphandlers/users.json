@@ -1,0 +1,19 @@
+{
+  "portal": [
+    {
+      "email": "hanz@sykofizz.com",
+      "properties": {
+        "fullname": "sykofizz",
+        "location": "World"
+      },
+      "groups": [
+      ],
+      "roles": [
+        "Member"
+      ],
+      "username": "sykofizz"
+    }
+  ],
+    "team": [
+  ]
+}

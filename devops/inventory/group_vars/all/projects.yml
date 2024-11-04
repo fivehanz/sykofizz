@@ -1,0 +1,7 @@
+---
+project_folders:
+  # Path to store sykofizz.com postgres data
+  - path: "/srv/sykofizz/data"
+    owner: 999
+    group: 999
+    mode: "0750"
