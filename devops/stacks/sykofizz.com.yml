@@ -98,7 +98,7 @@ services:
   backend:
     image: fivehanz/sykofizz-backend:${STACK_PARAM:-latest}
     environment:
-      RELSTORAGE_DSN: "dbname='${DB_NAME:-plone}' user='${DB_USER:-plone}' host='${DB_HOST:-db}' password='${DB_PASSWORD:-zPDDtDRlAOhw}' port='${DB_PORT:-5432}'"
+      RELSTORAGE_DSN: "dbname='${DB_NAME:-plone}' user='${DB_USER:-plone}' host='${DB_HOST:-db}' password='${DB_PASSWORD:-OnMtnpneasYV}' port='${DB_PORT:-5432}'"
     depends_on:
       - db
     networks:
@@ -146,7 +146,7 @@ services:
     image: postgres:14
     environment:
       POSTGRES_USER: plone
-      POSTGRES_PASSWORD: zPDDtDRlAOhw
+      POSTGRES_PASSWORD: OnMtnpneasYV
       POSTGRES_DB: plone
     deploy:
       replicas: 1

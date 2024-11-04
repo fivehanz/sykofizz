@@ -55,7 +55,7 @@ services:
     build:
       context: ./backend
     environment:
-      RELSTORAGE_DSN: "dbname='${DB_NAME:-plone}' user='${DB_NAME:-plone}' host='${DB_HOST:-db}' password='${DB_PASSWORD:-zPDDtDRlAOhw}' port='${DB_PORT:-5432}'"
+      RELSTORAGE_DSN: "dbname='${DB_NAME:-plone}' user='${DB_NAME:-plone}' host='${DB_HOST:-db}' password='${DB_PASSWORD:-OnMtnpneasYV}' port='${DB_PORT:-5432}'"
     depends_on:
       - db
     labels:
@@ -94,7 +94,7 @@ services:
     image: postgres:14
     environment:
       POSTGRES_USER: plone
-      POSTGRES_PASSWORD: zPDDtDRlAOhw
+      POSTGRES_PASSWORD: OnMtnpneasYV
       POSTGRES_DB: plone
     volumes:
       - vol-site-data:/var/lib/postgresql/data

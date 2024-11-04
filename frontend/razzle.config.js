@@ -27,14 +27,12 @@ const customModifyWebpackConfig = ({
   webpackConfig,
   webpackObject,
   options,
-  paths,
 }) => {
   const config = modifyWebpackConfig({
     env: { target, dev },
     webpackConfig,
     webpackObject,
     options,
-    paths,
   });
   // add custom code here..
   return config;

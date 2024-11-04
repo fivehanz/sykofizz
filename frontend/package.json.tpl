@@ -1,6 +1,6 @@
 {
-  "name": "frontend",
-  "description": "fizz up your psyche",
+  "name": "<%= projectName %>",
+  "description": "<%= projectDescription %>",
   "license": "MIT",
   "version": "1.0.0",
   "scripts": {
@@ -25,12 +25,9 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "workspaces": [
-    "src/addons/volto-sykofizz"
-  ],
-  "addons": [
-    "volto-sykofizz"
-  ],
+  "private": <%- private %>,
+  "workspaces": <%- workspaces %>,
+  "addons": <%- addons %>,
   "jest": {
     "modulePathIgnorePatterns": [
       "api"
@@ -139,9 +136,7 @@
   "engines": {
     "node": "^16 || ^18 || ^20"
   },
-  "dependencies": {
-    "@plone/volto": "17.20.1"
-  },
+  "dependencies": <%- dependencies %>,
   "devDependencies": {
     "@plone/scripts": "^3.3.2",
     "@storybook/addon-actions": "^6.3.0",
@@ -168,6 +163,5 @@
   "resolutions": {
     "react-error-overlay": "6.0.9"
   },
-  "packageManager": "yarn@3.2.3",
-  "theme": "volto-sykofizz"
+  "packageManager": "yarn@3.2.3"
 }
