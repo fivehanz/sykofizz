@@ -19,15 +19,17 @@ from django.contrib import admin
 from django.urls import path, include
 
 from wagtail.admin import urls as wagtailadmin_urls
-# from wagtail import urls as wagtail_urls
-# from wagtail.documents import urls as wagtaildocs_urls
+from wagtail import urls as wagtail_urls
+from wagtail.documents import urls as wagtaildocs_urls
 
-from .api import api_router
+from debug_toolbar.toolbar import debug_toolbar_urls
+
+# from .api import api_router
 
 urlpatterns = [
-    path('api/v2/', api_router.urls),
+    # path('api/v2/', api_router.urls),
     path("admin/", admin.site.urls),
-    path('cms/', include(wagtailadmin_urls)),
-    # path('documents/', include(wagtaildocs_urls)),
-    # path('', include(wagtail_urls)),
-]
+    path("cms/", include(wagtailadmin_urls)),
+    path("documents/", include(wagtaildocs_urls)),
+    path("", include(wagtail_urls)),
+] + debug_toolbar_urls()

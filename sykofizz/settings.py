@@ -42,6 +42,8 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
+    "home",
+    "debug_toolbar",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -65,12 +67,13 @@ INSTALLED_APPS = [
     "taggit",
     "wagtailcache",
     "wagtailseo",
-    'wagtail.api.v2',
+    # 'wagtail.api.v2',
     # "rest_framework",
 ]
 
 MIDDLEWARE = [
     "wagtailcache.cache.UpdateCacheMiddleware",  # wagtail cache
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -209,4 +212,4 @@ STORAGES["default"] = {
 }
 
 WAGTAIL_SITE_NAME = "sykofizz"
-WAGTAILADMIN_BASE_URL = "https://syko.sykofizz.com"
+WAGTAILADMIN_BASE_URL = "https://sykofizz.com"

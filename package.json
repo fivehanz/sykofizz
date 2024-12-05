@@ -1,0 +1,6 @@
+{
+  "dependencies": { "uikit": "^3.21.16" },
+  "devDependencies": {
+    "less": "^4.2.1"
+  }
+}
