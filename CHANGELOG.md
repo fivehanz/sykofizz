@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.9.0](https://github.com/fivehanz/sykofizz/compare/v1.8.0...v1.9.0) (2024-12-09)
+
+
+### Features
+
+* astro frontend init ([218ddb1](https://github.com/fivehanz/sykofizz/commit/218ddb1803ba3d7fda5d5fe7c714261b6a6a68e5))
+* Docker CI ([7bdb4e1](https://github.com/fivehanz/sykofizz/commit/7bdb4e1e64b1d071992d95ab1e8cb4d57b818d2d))
+* docker ci/cd ([99a6381](https://github.com/fivehanz/sykofizz/commit/99a638145ff8bed5dc9d9f97598ec8b9a1fa50e3))
+* move to node for astro ([57cfc6f](https://github.com/fivehanz/sykofizz/commit/57cfc6f822f3da96d719b48da6ce7846d89be45b))
+* move to remix.run init ([11f56f5](https://github.com/fivehanz/sykofizz/commit/11f56f52e8e1587f9d1d12194cafb249e50c30f7))
+* swarm deployment init ([bdb467e](https://github.com/fivehanz/sykofizz/commit/bdb467e803497da37462e2769df8b2a9f611ec15))
+* whitenoise for statics ([2b556d5](https://github.com/fivehanz/sykofizz/commit/2b556d53865049e0ce04ff8bcbbb04d7f077e664))
+
+
+### Bug Fixes
+
+* Docker CI on PR only ([093f46a](https://github.com/fivehanz/sykofizz/commit/093f46a66eeaf989975c623ecbdff84ca0f40b21))
+* incorrect port mapping ([eaa6b2c](https://github.com/fivehanz/sykofizz/commit/eaa6b2c1e8f5d33befccd51fc74917213197d83c))
+* nonexistent compress cmd ([2dbe6a9](https://github.com/fivehanz/sykofizz/commit/2dbe6a9288686da6513c87476681a859c929f500))
+* r42 url, 403 for index ([2dd4f03](https://github.com/fivehanz/sykofizz/commit/2dd4f03137983ce171125e6207d96b7c1dc1167c))
+* rm astro ([12e597c](https://github.com/fivehanz/sykofizz/commit/12e597c55ee1ef96e559c2b28ef78c7453ddd186))
+* templates ([f97482c](https://github.com/fivehanz/sykofizz/commit/f97482c7b310fbe1a761b10215cf7f92b7f901b9))
+* url change ([25126bc](https://github.com/fivehanz/sykofizz/commit/25126bc41708e4d04d0524aba2bc536efd93ef27))
+
 ## [1.8.0](https://github.com/fivehanz/sykofizz/compare/v1.7.0...v1.8.0) (2023-11-27)
 
 
