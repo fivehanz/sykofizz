@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "compressor",
     "dbbackup",  # django-dbbackup
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
@@ -67,6 +68,8 @@ INSTALLED_APPS = [
     "taggit",
     "wagtailcache",
     "wagtailseo",
+    "plausible",
+    "plausible.contrib.wagtail",
     # 'wagtail.api.v2',
     # "rest_framework",
 ]
@@ -134,15 +137,21 @@ DBBACKUP_STORAGE_OPTIONS = {
     "default_acl": "private",
 }
 
-
 # CACHE
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": os.environ.get("REDIS_URL", "redis://127.0.0.1:6379/1"),
-        "TIMEOUT": 60 * 60 * 24 * 7,  # 1 week
+if DEBUG:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.dummy.DummyCache",
+        }
     }
-}
+else:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.redis.RedisCache",
+            "LOCATION": os.environ.get("REDIS_URL", "redis://127.0.0.1:6379/1"),
+            "TIMEOUT": 60 * 60 * 24 * 7,  # 1 week
+        }
+    }
 
 # Email
 EMAIL_BACKEND = "anymail.backends.resend.EmailBackend"

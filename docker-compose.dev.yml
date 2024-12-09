@@ -13,7 +13,7 @@ services:
   #     - ./media:/app/media
   #     - ./static:/app/static
 
-  backend:
+  web:
     build:
       context: .
       dockerfile: dev.Dockerfile
@@ -26,15 +26,16 @@ services:
     networks:
       - sfizz-nw
     depends_on:
-      - redis
+      - db
     environment:
       - DATABASE_URL=postgres://user:password@db:5432/sfizz-db
       - REDIS_URL=redis://redis:6379/1
       - S3_ADDRESSING_STYLE=auto
       - RUN_MIGRATION=true
+      - COLLECT_STATIC=true
     env_file:
       - .env
-  
+
   remark42:
     image: umputun/remark42:v1.13.1
     restart: unless-stopped
@@ -118,11 +119,11 @@ services:
       - POSTGRES_PASSWORD=password
       - PGDATA=/var/lib/postgresql/db
 
-  redis:
-    image: redis:7-alpine
-    restart: unless-stopped
-    networks:
-      - sfizz-nw
+  # redis:
+  #   image: redis:7-alpine
+  #   restart: unless-stopped
+  #   networks:
+  #     - sfizz-nw
 
 networks:
   sfizz-nw:
