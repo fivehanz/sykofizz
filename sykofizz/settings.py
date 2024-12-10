@@ -42,6 +42,7 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
+    "base",
     "home",
     "debug_toolbar",
     "django.contrib.admin",

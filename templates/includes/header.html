@@ -1,0 +1,33 @@
+{% load wagtailcore_tags navigation_tags %}
+
+<header>
+    <div class="uk-navbar-container">
+        <div class="uk-container">
+            <nav uk-navbar>
+                {% get_site_root as site_root %}
+                <div class="uk-navbar-left">
+                    <a href="{% pageurl site_root %}" class="uk-navbar-item uk-logo">sykofizz</a>
+                </div>
+
+                <!-- menu links -->
+                <div class="uk-navbar-right">
+                    <ul class="uk-navbar-nav">
+                        {% for menuitem in site_root.get_children.live.in_menu %}
+                        <li>
+                            <a class="uk-text-lowercase" href="{% pageurl site_root %}">
+                                home
+                            </a>
+                        </li>
+                        <li>
+                            <a class="uk-text-lowercase" href="{% pageurl menuitem %}">
+                                {{ menuitem.title }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!-- / end menu links -->
+            </nav>
+        </div>
+    </div>
+</header>
