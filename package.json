@@ -1,6 +1,12 @@
 {
-  "dependencies": { "uikit": "^3.21.16" },
+  "scripts": {
+    "build": "sass ./assets/scss/styles.scss > ./assets/css/uikit.min.css --no-error-css -q -s compressed",
+    "build-assets": "cp ./node_modules/uikit/dist/js/uikit.min.js ./assets/js/uikit.min.js && bun --bun run build"
+  },
+  "dependencies": {
+    "uikit": "^3.21.16"
+  },
   "devDependencies": {
-    "less": "^4.2.1"
+    "sass": "^1.82.0"
   }
 }
