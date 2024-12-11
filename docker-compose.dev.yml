@@ -50,6 +50,8 @@ services:
       - ADMIN_PASSWD=password
       - REMARK_URL=http://127.0.0.1:8080
       - SECRET=some-secret-key
+      - AUTH_ANON=true
+      - EMOJI=true
     env_file:
       - .env
 

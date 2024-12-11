@@ -107,6 +107,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "wagtail.contrib.settings.context_processors.settings",
+                "epoch.context_processors.env_vars",
             ],
         },
     },
@@ -224,3 +225,12 @@ STORAGES["default"] = {
 
 WAGTAIL_SITE_NAME = "sykofizz"
 WAGTAILADMIN_BASE_URL = "https://sykofizz.com"
+
+
+############ remark42 ############
+REMARK42 = {
+    "url": os.environ.get("REMARK_URL", "http://127.0.0.1:8080"),
+    "site_id": os.environ.get("REMARK_SITE_ID", "remark"),
+    "theme": os.environ.get("REMARK_THEME", "light"),
+}
+##################################

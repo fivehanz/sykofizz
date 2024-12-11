@@ -61,10 +61,10 @@
             <div id="remark42"></div>
             <script>
              	var remark_config = {
-              		host: 'http://127.0.0.1:8080',
-              		site_id: 'remark',
+              		host: '{{ REMARK42.url }}',
+              		site_id: '{{ REMARK42.site_id }}',
               		max_shown_comments: 69,
-              		theme: 'light',
+              		theme: '{{ REMARK42.theme }}',
               		show_email_subscription: true,
               		simple_view: false,
               		no_footer: true
