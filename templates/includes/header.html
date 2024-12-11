@@ -1,12 +1,12 @@
 {% load wagtailcore_tags navigation_tags %}
 
 <header>
-    <div class="uk-container">
-        <div class="uk-navbar-container">
-            <nav uk-navbar>
+    <div class="uk-navbar-container">
+        <div class="uk-container">
+            <nav uk-navbar class="uk-padding-remove-vertical">
                 {% get_site_root as site_root %}
                 <div class="uk-navbar-left">
-                    <a href="{% pageurl site_root %}" class="uk-navbar-item uk-logo">sykofizz</a>
+                    <a href="{% pageurl site_root %}" class="uk-logo">sykofizz</a>
                 </div>
 
                 <!-- menu links -->
