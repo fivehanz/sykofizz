@@ -44,6 +44,7 @@ else:
 INSTALLED_APPS = [
     "base",
     "home",
+    "epoch",
     "debug_toolbar",
     "django.contrib.admin",
     "django.contrib.auth",

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags epoch_tags epoch_filters %}
+
+{% block content %}
+    <article class="uk-article">
+        <h1 class="uk-article-title">{{ page.title }}</h1>
+        <p class="uk-article-meta">Series Number: {{ page.series_number }}</p>
+        <p class="uk-article-meta">{{ page.date }}</p>
+
+        {% if page.feed_image %}
+            <img src="{{ page.feed_image.url }}" alt="{{ page.feed_image.title }}" class="uk-margin-top">
+        {% endif %}
+
+        <div class="uk-margin">
+            <h2>table of contents</h2>
+            <ul class="uk-list uk-list-bullet">
+                {% generate_toc page.body as toc %}
+                {% for heading, id, sub_headings in toc %}
+                    <li>
+                        <a href="#{{ id }}" uk-scroll>{{ heading }}</a>
+                        {% if sub_headings %}
+                            <ul class="uk-list uk-list-bullet">
+                                {% for sub_heading, sub_id, sub_sub_headings in sub_headings %}
+                                    <li>
+                                        <a href="#{{ sub_id }}" uk-scroll>{{ sub_heading }}</a>
+                                        {% if sub_sub_headings %}
+                                            <ul class="uk-list uk-list-bullet">
+                                                {% for sub_sub_heading, sub_sub_id in sub_sub_headings %}
+                                                    <li><a href="#{{ sub_sub_id }}" uk-scroll>{{ sub_sub_heading }}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div>{{ page.body|richtext|add_heading_ids|safe }}</div>
+
+        <div class="uk-margin-top">
+            <div class="uk-grid-small uk-child-width-auto" uk-grid>
+                {% if previous_epoch %}
+                    <div>
+                        <a class="uk-button uk-button-text" href="{% pageurl previous_epoch %}">Previous Epoch</a>
+                    </div>
+                {% endif %}
+                {% if next_epoch %}
+                    <div>
+                        <a class="uk-button uk-button-text" href="{% pageurl next_epoch %}">Next Epoch</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <h2>comments</h2>
+            <div id="remark42"></div>
+            <script>
+             	var remark_config = {
+              		host: 'http://127.0.0.1:8080',
+              		site_id: 'remark',
+              		max_shown_comments: 69,
+              		theme: 'light',
+              		show_email_subscription: true,
+              		simple_view: false,
+              		no_footer: true
+             	}
+            </script>
+            <script>!function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);</script>
+
+        </div>
+
+    </article>
+{% endblock %}

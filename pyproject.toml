@@ -24,6 +24,7 @@ granian = "^1.6.1"
 django-debug-toolbar = "^4.4.6"
 django-compressor = "^4.5.1"
 django-plausible = "^0.5.0"
+bs4 = "^0.0.2"
 
 
 [build-system]
