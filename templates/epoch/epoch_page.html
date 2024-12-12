@@ -45,12 +45,12 @@
             <div class="uk-grid-small uk-child-width-auto" uk-grid>
                 {% if previous_epoch %}
                     <div>
-                        <a class="uk-button uk-button-text" href="{% pageurl previous_epoch %}">Previous Epoch</a>
+                        <a class="uk-button uk-button-text uk-text-primary" href="{% pageurl previous_epoch %}">Previous Epoch</a>
                     </div>
                 {% endif %}
                 {% if next_epoch %}
                     <div>
-                        <a class="uk-button uk-button-text" href="{% pageurl next_epoch %}">Next Epoch</a>
+                        <a class="uk-button uk-button-text uk-text-primary" href="{% pageurl next_epoch %}">Next Epoch</a>
                     </div>
                 {% endif %}
             </div>
@@ -71,7 +71,6 @@
              	}
             </script>
             <script>!function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);</script>
-
         </div>
 
     </article>

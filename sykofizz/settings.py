@@ -231,6 +231,6 @@ WAGTAILADMIN_BASE_URL = "https://sykofizz.com"
 REMARK42 = {
     "url": os.environ.get("REMARK_URL", "http://127.0.0.1:8080"),
     "site_id": os.environ.get("REMARK_SITE_ID", "remark"),
-    "theme": os.environ.get("REMARK_THEME", "light"),
+    "theme": os.environ.get("REMARK_THEME", "dark"),
 }
 ##################################

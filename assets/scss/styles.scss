@@ -1,10 +1,59 @@
-$global-link-color: #da7d02;
+/* text colors */
+$global-color: #e0e0e0;
+$global-muted-color: #b3b3b3;
+/* $global-emphasis-color: #f5f5f5; */
+$global-emphasis-color: #ff6164;
 
-@import "../../node_modules/uikit/src/scss/variables.scss";
-@import "../../node_modules/uikit/src/scss/mixins.scss";
+/* border and inverse colors */
+$global-border: #a1a1a1;
+/* $global-inverse-color: #121212; */
 
-@mixin hook-card() {
-    color: #000;
+/* background colors */
+$global-background: #121212;
+$global-muted-background: #121212;
+
+/* brand colors */
+$global-primary-background: #ff3b3f;
+$global-link-color: #ff3b3f;
+$global-link-hover-color: #ff3b3f;
+
+/* fonts */
+@font-face {
+    font-family: "Rajdhani-Variable";
+    src: url("/static/fonts/Rajdhani-Variable.woff2") format("woff2");
+    /* font-weight: 300 700; */
+    font-display: swap;
+    font-style: normal;
 }
 
-@import "../../node_modules/uikit/src/scss/uikit.scss";
+@font-face {
+    font-family: "Lora";
+    src:
+        url("/static/fonts/Lora-Variable.woff2") format("woff2"),
+        url("/static/fonts/Lora-Variable.ttf") format("truetype");
+    /* font-weight: 300 700; */
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Lora";
+    src:
+        url("/static/fonts/Lora-Variable_italic.woff2") format("woff2"),
+        url("/static/fonts/Lora-Variable_italic.ttf") format("truetype");
+    /* font-weight: 300 700; */
+    font-display: swap;
+    font-style: italic;
+}
+
+$global-font-family: "Lora", serif;
+$base-body-font-family: $global-font-family;
+$base-heading-font-family: "Rajdhani-Variable", sans-serif;
+
+$global-font-size: 1rem;
+$global-medium-font-size: 1.5rem;
+
+/* imports */
+@import "../../node_modules/uikit/src/scss/variables-theme.scss";
+@import "../../node_modules/uikit/src/scss/mixins-theme.scss";
+@import "../../node_modules/uikit/src/scss/uikit-theme.scss";
