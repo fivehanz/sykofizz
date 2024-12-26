@@ -65,7 +65,7 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh && chown wagtail:wagtail /entrypoint.sh
 
 RUN chown wagtail:wagtail -R /app/src
-#COPY --chown=wagtail:wagtail . .
+COPY --chown=wagtail:wagtail . .
 
 USER wagtail
 
