@@ -14,6 +14,8 @@ import os
 import dj_database_url
 from django.conf.global_settings import STORAGES
 from pathlib import Path
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -233,4 +235,16 @@ REMARK42 = {
     "site_id": os.environ.get("REMARK_SITE_ID", "remark"),
     "theme": os.environ.get("REMARK_THEME", "dark"),
 }
+##################################
+
+
+############# SENTRY #############
+sentry_sdk.init(
+    dsn=os.environ.get("SENTRY_DSN", "test"),
+    integrations=[DjangoIntegration()],
+    auto_session_tracking=False,
+    traces_sample_rate=0.01,
+    profiles_sample_rate=0.05,
+    environment=os.environ.get("SENTRY_ENVIRONMENT", "production"),
+)
 ##################################
