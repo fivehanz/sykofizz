@@ -40,11 +40,11 @@ RUN apt-get update \
     postgresql-client-15 \
     && rm -rf /var/lib/apt/lists/* && apt-get clean
 
-ENV GID=1000
-ENV UID=1000
-
-RUN groupadd -g $GID wagtail && \
-    useradd -m -u $UID -g $GID wagtail
+# ENV GID=1000
+# ENV UID=1000
+#
+# RUN groupadd -g $GID wagtail && \
+#     useradd -m -u $UID -g $GID wagtail
 
 WORKDIR $PYSETUP_PATH
 COPY --from=builder-base $POETRY_HOME $POETRY_HOME
@@ -62,11 +62,12 @@ EXPOSE $PORT
 # ENV PYTHONPATH=/app/src:$PYTHONPATH
 
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh && chown wagtail:wagtail /entrypoint.sh
+RUN chmod +x /entrypoint.sh 
+# && chown wagtail:wagtail /entrypoint.sh
 
-RUN chown wagtail:wagtail -R /app/src
-COPY --chown=wagtail:wagtail . .
+# RUN chown wagtail:wagtail -R /app/src
+# COPY --chown=wagtail:wagtail . .
 
-USER wagtail
+# USER wagtail
 
 ENTRYPOINT ["/entrypoint.sh"]
