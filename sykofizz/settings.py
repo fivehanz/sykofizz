@@ -233,7 +233,7 @@ STORAGES["staticfiles"] = {
     "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"
 }
 
-COMPRESS_OFFLINE = os.environ.get("COMPRESS_OFFLINE", !DEBUG)
+COMPRESS_OFFLINE = os.environ.get("COMPRESS_OFFLINE", not DEBUG)
 
 WAGTAIL_SITE_NAME = "sykofizz"
 WAGTAILADMIN_BASE_URL = "https://sykofizz.com"
