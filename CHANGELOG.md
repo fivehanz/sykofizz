@@ -1,5 +1,41 @@
 # Changelog
 
+## [1.9.0](https://github.com/fivehanz/sykofizz/compare/v1.8.0...v1.9.0) (2024-12-27)
+
+
+### Features
+
+* astro frontend init ([218ddb1](https://github.com/fivehanz/sykofizz/commit/218ddb1803ba3d7fda5d5fe7c714261b6a6a68e5))
+* brand theme colors, typography ([e075779](https://github.com/fivehanz/sykofizz/commit/e0757798bd02a19fe2ad1d53d9d1c1f09f2fb550))
+* Docker CI ([7bdb4e1](https://github.com/fivehanz/sykofizz/commit/7bdb4e1e64b1d071992d95ab1e8cb4d57b818d2d))
+* docker ci/cd ([99a6381](https://github.com/fivehanz/sykofizz/commit/99a638145ff8bed5dc9d9f97598ec8b9a1fa50e3))
+* epoch series pages ([83eb62c](https://github.com/fivehanz/sykofizz/commit/83eb62c26d2dedd3b948f822804f412242c2db97))
+* move to node for astro ([57cfc6f](https://github.com/fivehanz/sykofizz/commit/57cfc6f822f3da96d719b48da6ce7846d89be45b))
+* move to remix.run init ([11f56f5](https://github.com/fivehanz/sykofizz/commit/11f56f52e8e1587f9d1d12194cafb249e50c30f7))
+* rm proxy_protocol on nginx ([d528658](https://github.com/fivehanz/sykofizz/commit/d52865823fb3e1f4f897f1fae42b28c89c0eb152))
+* sass build, assets ([cfde476](https://github.com/fivehanz/sykofizz/commit/cfde4764c4218eef1ed6e16b65b46d5c2d9a42f8))
+* sentry integration ([71f9ff5](https://github.com/fivehanz/sykofizz/commit/71f9ff52c357105c4c320792f4572d653fd6d9fe))
+* swarm deployment init ([bdb467e](https://github.com/fivehanz/sykofizz/commit/bdb467e803497da37462e2769df8b2a9f611ec15))
+* upgrade remark42 to v1.14.0 ([5638066](https://github.com/fivehanz/sykofizz/commit/56380663fbcb5535f008369e6d54d5c4f532c435))
+* whitenoise for statics ([2b556d5](https://github.com/fivehanz/sykofizz/commit/2b556d53865049e0ce04ff8bcbbb04d7f077e664))
+
+
+### Bug Fixes
+
+* !hardcode remark42 settings ([8877c5d](https://github.com/fivehanz/sykofizz/commit/8877c5d24ab9bf7d4c3b22b197f3e320ecf886a1))
+* compressed statics whitenoise ([c2eb193](https://github.com/fivehanz/sykofizz/commit/c2eb19300d24caa4095def971b7704a899ec6de6))
+* deployment nginx, swarm config ([4cb43d7](https://github.com/fivehanz/sykofizz/commit/4cb43d7c083a8a0453c479415d520a7789ff9501))
+* Docker CI on PR only ([093f46a](https://github.com/fivehanz/sykofizz/commit/093f46a66eeaf989975c623ecbdff84ca0f40b21))
+* incorrect port mapping ([eaa6b2c](https://github.com/fivehanz/sykofizz/commit/eaa6b2c1e8f5d33befccd51fc74917213197d83c))
+* layout template w/ assets, navs ([d5e3945](https://github.com/fivehanz/sykofizz/commit/d5e3945c93d3159fcb764da5dcd75aa02d435d9a))
+* navbar layout ([79801c9](https://github.com/fivehanz/sykofizz/commit/79801c9fe010926357f80b17ec997575fed5a1a9))
+* nonexistent compress cmd ([2dbe6a9](https://github.com/fivehanz/sykofizz/commit/2dbe6a9288686da6513c87476681a859c929f500))
+* r42 url, 403 for index ([2dd4f03](https://github.com/fivehanz/sykofizz/commit/2dd4f03137983ce171125e6207d96b7c1dc1167c))
+* rm astro ([12e597c](https://github.com/fivehanz/sykofizz/commit/12e597c55ee1ef96e559c2b28ef78c7453ddd186))
+* static file finders, compressor ([6f4b45b](https://github.com/fivehanz/sykofizz/commit/6f4b45bfe55cd478725bd4db19cb87ed4e233bdf))
+* templates ([f97482c](https://github.com/fivehanz/sykofizz/commit/f97482c7b310fbe1a761b10215cf7f92b7f901b9))
+* url change ([25126bc](https://github.com/fivehanz/sykofizz/commit/25126bc41708e4d04d0524aba2bc536efd93ef27))
+
 ## [1.8.0](https://github.com/fivehanz/sykofizz/compare/v1.7.0...v1.8.0) (2023-11-27)
 
 
