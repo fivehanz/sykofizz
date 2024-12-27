@@ -226,8 +226,14 @@ STORAGES["default"] = {
         "use_ssl": os.environ.get("MEDIA_S3_USE_SSL", True) == "True",
         "addressing_style": "path",
         "default_acl": "private",
-    },
+    }
 }
+
+STORAGES["staticfiles"] = {
+    "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"
+}
+
+COMPRESS_OFFLINE = os.environ.get("COMPRESS_OFFLINE", !DEBUG)
 
 WAGTAIL_SITE_NAME = "sykofizz"
 WAGTAILADMIN_BASE_URL = "https://sykofizz.com"
