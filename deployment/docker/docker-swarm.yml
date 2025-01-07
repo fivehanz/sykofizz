@@ -46,9 +46,9 @@ services:
       - .env
     environment:
       PGDATA: /var/lib/postgresql/db
-      POSTGRES_DB: sykofizz-db
+      POSTGRES_DB: sykofizz
       POSTGRES_PASSWORD: password
-      POSTGRES_USER: postgres
+      POSTGRES_USER: sykofizz
     deploy:
       replicas: 1
       update_config:
