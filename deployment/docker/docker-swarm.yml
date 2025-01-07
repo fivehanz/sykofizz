@@ -40,6 +40,32 @@ services:
     env_file:
       - .env
 
+  postgres:
+    image: postgres:17-alpine 
+    env_file:
+      - .env
+    environment:
+      PGDATA: /var/lib/postgresql/db
+      POSTGRES_DB: sykofizz-db
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 30s
+        order: start-first
+        failure_action: rollback
+        monitor: 30s
+      rollback_config:
+        parallelism: 1
+        delay: 10s 
+        order: stop-first
+    networks:
+      - sfizz-nw 
+    volumes: 
+      - /mnt/glusterfs/sykofizz/postgres/db:/var/lib/postgresql/db
+
   syko_redis:
     networks:
       - sfizz-nw
