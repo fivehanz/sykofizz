@@ -31,7 +31,7 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 WORKDIR $PYSETUP_PATH
 COPY poetry.lock pyproject.toml ./
 
-RUN poetry install --no-dev && poetry add granian[reload] && poetry cache clear . --all
+RUN poetry install && poetry add granian[reload] && poetry cache clear . --all
 
 ############################################################
 
