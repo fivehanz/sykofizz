@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sykofizz"
-version = "1.8.0"
+version = "1.9.0"
 description = "sykofizz"
 authors = ["Hanz <haniel56@zoho.eu>"]
 license = "BSD"
