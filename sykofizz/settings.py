@@ -158,6 +158,8 @@ else:
         }
     }
 
+WHITENOISE_MAX_AGE = 60 * 60 * 24 * 14 # 2 weeks
+
 # Email
 EMAIL_BACKEND = "anymail.backends.resend.EmailBackend"
 ANYMAIL = {
