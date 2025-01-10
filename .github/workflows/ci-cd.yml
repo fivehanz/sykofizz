@@ -49,25 +49,17 @@ jobs:
   deploy:
     runs-on: ubuntu-24.04
     needs: build-and-push-docker-image
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Check network connectivity
-        run: ping -c 3 ${{ secrets.SSH_HOST }}
-      
+    steps:  
       - name: Deploy to Docker Swarm
-        run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
-          cd ${{ secrets.PROJECT_FOLDER }}
-          git pull origin main
-          env TAG=${{ needs.build-and-push-docker-image.outputs.tag }} make prod-update
-          EOF
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: |
+            cd ${{ secrets.PROJECT_FOLDER }}
+            git pull origin main
+            env TAG=${{ needs.build-and-push-docker-image.outputs.tag }} make prod-update
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Purge CF Cache
         uses: nathanvaughn/actions-cloudflare-purge@master
